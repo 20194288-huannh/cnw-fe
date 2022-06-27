@@ -1,0 +1,83 @@
+.introEliteProduct {
+    display: flex;
+    width: 100%;
+    margin-top: 70px;
+}
+
+.introEliteProductImg {
+    width: 52%;
+}
+
+.introEliteProductImg a img {
+    width: 100%;
+}
+
+.introEliteProductAbout {
+    width: 48%;
+    padding: 5% 5% 6% 15%;
+}
+
+.introEliteProductTitle {
+    margin-top: 50px;
+    padding: 0 50px;
+}
+
+.introEliteProductTitle a {
+    text-decoration: none;
+}
+
+.introEliteProductTitle a h2:hover {
+    color: var(--color-hover);
+}
+
+.introEliteProductTitle a h2 {
+    width: 100%;
+    display: block;
+    color: var(--color-text);
+    border-bottom: 1px solid rgb(238, 228, 228);
+    font-size: 23px;
+    font-weight: 400;
+    padding-bottom: 30px;
+    text-align: center;
+    transition: color .3s linear;
+}
+
+.introEliteProductContent {
+    margin-top: 50px;
+}
+
+.introEliteProductContent p {
+    font-size: 17px;
+    font-weight: 400;
+    font-style: italic;
+    text-align: justify;
+    color: var(--color-text);
+}
+
+.introEliteProductLearnMore {
+    display: block;
+    margin-top: 50px;
+    width: 35%;
+    text-align: center;
+    border: 1px solid rgb(238, 228, 228);
+    transition: background .3s ease;
+}
+
+.introEliteProductLearnMore a {
+    text-decoration: none;
+}
+
+.introEliteProductLearnMoreContent {
+    color: var(--color-text);
+    display: block;
+    padding: 15px;
+    margin: 0;
+}
+
+.introEliteProductLearnMore:hover {
+    background: var(--color-hover);
+}
+
+.introEliteProductLearnMoreContent:hover {
+    color: #fff;
+}

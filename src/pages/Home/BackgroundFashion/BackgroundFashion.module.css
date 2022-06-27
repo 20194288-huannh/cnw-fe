@@ -1,0 +1,14 @@
+
+/* ---Background-Fashion---- */
+
+.backgroundFashion {
+    position: relative;
+    background-attachment: fixed;
+    height: auto;
+    background-size: 100%;
+    background-position: center;
+    background: url(https://theme.hstatic.net/200000000133/1000569834/14/homeBannerCenter_1.jpg?v=5160);
+    background-repeat: no-repeat;
+    padding: 150px 0;
+    cursor: pointer;
+}

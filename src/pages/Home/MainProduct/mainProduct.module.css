@@ -1,0 +1,60 @@
+
+/* -----mainProduct------- */
+
+.mainProduct {
+    display: block;
+    min-width: 1375px;
+    margin-top: 10px;
+    position: relative;
+    padding: 40px;
+}
+
+.mainProductContent {
+    display: block;
+    width: 100%;
+}
+
+.mainProductContent .mainProductImg {
+    padding: 18px;
+    width: 100%;
+}
+
+.mainProductContent.mainProductDown {
+    margin: 40px 0;
+}
+
+.mainProductContent .animateBanner a::after {
+    content: "";
+    position: absolute;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    inset: 11px 21px;
+    border-style: solid;
+    border-left-color: #fff;
+    border-right-color: #fff;
+    border-width: 2px;
+    transform: scale(1, 0);
+    transition: transform .3s linear;
+}
+
+.mainProductContent:hover.animateBanner a::after {
+    transform: scale(1, 1);
+}
+
+.mainProductContent.animateBanner a::before {
+    content: "";
+    position: absolute;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    inset: 11px 21px;
+    border-style: solid;
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+    border-width: 2px;
+    transform: scale(0, 1);
+    transition: all .5s ease;
+}
+
+.mainProductContent:hover.animateBanner a::before {
+    transform: scale(1, 1);
+}
