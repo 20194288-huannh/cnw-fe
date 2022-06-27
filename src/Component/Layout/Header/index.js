@@ -6,7 +6,7 @@ import {faMagnifyingGlass, faBell} from '@fortawesome/free-solid-svg-icons'
 
 function Header(){
     return (
-        <React.Fragment>
+        <div className={styles.wrapper}>
             <div className={styles.header}>
                 <div className={styles.headerInfo}>
                     <Link to="/" className={styles.headerInfoAdd}>Hệ thống <span>36</span> Store - Mua hàng Online (08h30-17h30 từ
@@ -98,7 +98,7 @@ function Header(){
                     </div>
                 </div>
             </div>
-        </React.Fragment>
+        </div>
     )
 }
 

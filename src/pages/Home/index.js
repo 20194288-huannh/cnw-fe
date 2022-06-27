@@ -7,6 +7,7 @@ import IntroEliteProduct from './IntroEliteProduct';
 import BackgroundFashion from './BackgroundFashion';
 import News from './News';
 import FindShop from './FindShop';
+import FeedBack from './FeedBack';
 
 function Home(){
     return (
@@ -17,6 +18,7 @@ function Home(){
             <IntroEliteProduct />
             <BackgroundFashion />
             <News />
+            <FeedBack />
             <FindShop />
         </React.Fragment>
     )
