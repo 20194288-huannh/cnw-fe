@@ -50,8 +50,7 @@ function Footer(){
                                 <p>Bằng cách đăng ký, bạn đồng ý với chính sách bảo mật của chúng tôi</p>
                             </div>
                             <div className={styles.signUpForm}>
-                                <input type="email" required id={styles.email} />
-                                <label htmlFor="email" className="input-placeholder">Nhập email của bạn</label>
+                                <input type="email" required id={styles.email} placeholder="Nhập email của bạn"/>
                                 <button className={styles.submitBtn} type="submit">
                                     <FontAwesomeIcon icon={faAngleRight} aria-hidden="true"/>
                                 </button>

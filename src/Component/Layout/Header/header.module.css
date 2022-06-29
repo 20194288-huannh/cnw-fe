@@ -169,13 +169,13 @@
     border: 1px solid var(--color-border);
     width: 50%;
     height: 75%;
+    border: none;
 }
 
 .headerSearch {
     width: 100%;
     height: 100%;
     padding-left: 10px;
-    border: none;
 }
 
 .headerSearch:focus {
@@ -206,6 +206,10 @@
 .adminSearch > i {
     color: #fff;
 }
+
+.closeSearch{
+    border: none;
+}
 .headerForm {
     display: block;
     position: absolute;
@@ -233,4 +237,20 @@
 
 .headerForm input:focus {
     outline: none;
+}
+
+/* Header icon */
+.notify{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.notifyInner{
+    display: none;
+}
+
+.icon{
+    font-size: 25px;
+    padding-right: 20px;
 }

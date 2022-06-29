@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './header.module.css'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faMagnifyingGlass, faBell} from '@fortawesome/free-solid-svg-icons'
+import {faMagnifyingGlass, faUser, faCartShopping} from '@fortawesome/free-solid-svg-icons'
 
 function Header(){
     return (
@@ -27,40 +27,40 @@ function Header(){
                             <Link to="/" className={styles.headerNavContentItemLink} title="Hàng mới về">HÀNG MỚI VỀ</Link>
                         </li>
                         <li className={`${styles.headerNavContentItem} ${styles.hasItemMenu}`}>
-                            <Link to="/admin-skirt" className={styles.headerNavContentItemLink} title="Sản phẩm">SẢN PHẨM</Link>
+                            <Link to="/skirt" className={styles.headerNavContentItemLink} title="Sản phẩm">SẢN PHẨM</Link>
                             <div className={styles.headerSubNav}>
                                 <div className={styles.subNavList}>
                                     <ul>
                                         <li className={styles.subNavItem}>
-                                            <Link to="/admin-dress">
+                                            <Link to="/dress">
                                                 <img alt={styles.anh} src="https://theme.hstatic.net/200000000133/1000569834/14/img_megamenu3_1.jpg?v=5127"
                                                     className={styles.subNavItemImg} />
                                                 <span className={styles.subNavInfo}>Đầm</span>
                                             </Link>
                                         </li>
                                         <li className={styles.subNavItem}>
-                                            <Link to="/admin-shirt">
+                                            <Link to="/shirt">
                                                 <img alt={styles.anh} src="https://theme.hstatic.net/200000000133/1000569834/14/img_megamenu3_2.jpg?v=5127"
                                                     className={styles.subNavItemImg} />
                                                 <span className={styles.subNavInfo}>Áo</span>
                                             </Link>
                                         </li>
                                         <li className={styles.subNavItem}>
-                                            <Link to="/admin-skirt">
+                                            <Link to="/skirt">
                                                 <img alt={styles.anh} src="https://theme.hstatic.net/200000000133/1000569834/14/img_megamenu3_6.jpg?v=5127"
                                                     className={styles.subNavItemImg} />
                                                 <span className={styles.subNavInfo}>Chân váy</span>
                                             </Link>
                                         </li>
                                         <li className={styles.subNavItem}>
-                                            <Link to="/admin-trousers">
+                                            <Link to="/trousers">
                                                 <img alt={styles.anh} src="https://theme.hstatic.net/200000000133/1000569834/14/img_megamenu3_7.jpg?v=5127"
                                                     className={styles.subNavItemImg} />
                                                 <span className={styles.subNavInfo}>Quần</span>
                                             </Link>
                                         </li>
                                         <li className={styles.subNavItem}>
-                                            <Link to="/admin-accessory">
+                                            <Link to="/accessory">
                                                 <img alt={styles.anh} src="https://theme.hstatic.net/200000000133/1000569834/14/img_megamenu3_8.jpg?v=5365"
                                                     className={styles.subNavItemImg} />
                                                 <span className={styles.subNavInfo}>Phụ kiện</span>
@@ -77,25 +77,18 @@ function Header(){
                         <div className={styles.search}>
                             <form action="search" className={styles.headerForm}>
                                 <input autoFocus={true} type="text" className={styles.headerForm} placeholder="Tìm sản phẩm..." />
-                                <div className="close-search"><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
+                                <div className={styles.closeSearch}><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
                             </form>
                             <div className="search-result"></div>
                         </div>
                     </div>
                 </div>
-                <div className="notify">
-                    <FontAwesomeIcon icon={faBell} />
-                    <div className="notify_inner">
-                        <div className='notify_header'>
-                            Thông báo mới nhất
-                        </div>
-                        <div className='notify_body noselect'>
-                            <div className='notify-item order unread'>
-                                <div className='notify-item__thumbnail'></div>
-                                
-                            </div>
-                        </div>
+                <div className={styles.notify}>
+                    <Link to="/account/login" ><FontAwesomeIcon icon={faUser} className={styles.icon}/></Link>
+                    <div className={styles.notifyInner}>
+                        Đăng nhập
                     </div>
+                    <FontAwesomeIcon icon={faCartShopping} className={styles.icon}/>
                 </div>
             </div>
         </div>

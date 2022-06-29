@@ -12,6 +12,7 @@
     font-size: 22px;
     color: #000;
     transition: color .2s linear;
+    text-decoration: underline;
 }
 
 .findShop a:hover {
