@@ -1,0 +1,190 @@
+.productContainer {
+    margin: 20px 0px 20px 40px;
+}
+
+.product {
+    width: 100%;
+}
+
+.productImages{
+    padding: 0 50px;
+}
+.thumbs{
+    padding: 0 10px;
+}
+.thumbItem {
+    line-height: 0;
+    margin-bottom: 10px;
+    border: 1px solid #f7f7f8;
+    width: 100%;
+    cursor: pointer;
+}
+
+.activeImg {
+    border: 2px solid rgb(56, 54, 54);
+}
+
+.thumbItem img {
+    width: 100%;
+}
+
+.mainImages img {
+    width: 100%;
+}
+
+.productDetails {
+    padding: 15px;
+}
+
+.productDetails h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.skuProduct {
+    float: left;
+    width: 100%;
+    margin: 8px 0;
+    font-size: 12px;
+    color: black;
+}
+
+.skuProduct span {
+    color: #e29481;
+    font-weight: bold;
+}
+
+.productPrice {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    padding-bottom: 20px;
+    border-bottom: 1px dotted #dfe0e1;
+}
+
+.desProduct span {
+    display: block;
+    margin: 0 0 10px 0;
+    font-size: 14px;
+}
+
+.desProduct p {
+    line-height: 15px;
+}
+
+.productStyle {
+    border-bottom: 1px solid #dfe0e1;
+    padding-bottom: 20px;
+}
+
+.productStyle a {
+    display: block;
+    padding: 1px;
+    width: 33px;
+    border: 1px solid #ccc;
+}
+
+.sizeArea {
+    margin: 10px 0;
+    border-bottom: 1px dotted #dfe0e1;
+    padding-bottom: 10px;
+}
+
+.option {
+    display: flex;
+    padding: 0 0 1rem 0;
+}
+
+.activeSize {
+    background: #e29481;
+    color: #fff;
+}
+
+.optionContent {
+    width: 7%;
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+
+.quantityArea {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.quantityContent {
+    width: 9%;
+}
+
+.btnMinusQuantity,
+.btnAddQuantity {
+    width: 7%;
+}
+
+.btnMinusQuantity:hover,
+.btnAddQuantity:hover {
+    background: rgb(253, 249, 249);
+}
+
+.btnMinusQuantity,
+.btnAddQuantity,
+.quantityContent {
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 20px;
+    padding: 7px;
+    cursor: pointer;
+}
+
+.qtyInput {
+    width: 60px;
+    text-align: center;
+    border: 1px solid #e5e5e5;
+    border-left: none;
+    border-right: none;
+}
+
+button.addCart {
+    display: block;
+    width: 260px;
+    height: 50px;
+    background: black;
+    border: none;
+    font-size: 17px;
+    text-transform: uppercase;
+    color: #fff;
+    outline: none;
+    background-size: 25px;
+    background-position: 45px 11px;
+}
+
+button.addCart:hover {
+    background: #e29481;
+}
+
+.hotlineProduct {
+    margin-top: 20px;
+}
+
+.productRelated {
+    margin: 2em;
+}
+
+.productRelated .title {
+    margin: 30px 0 60px 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: #222;
+    font-size: 29px;
+    font-family: "brandonText";
+}
+
+.disable {
+    pointer-events: none;
+    background: #ccc;
+}
