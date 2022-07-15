@@ -91,3 +91,19 @@
     flex-direction: column;
     padding: 0.5rem 1 rem;
 }
+
+.img_pro>img{
+    width: 10rem;
+}
+
+.btn_remove {
+    width: 100%;
+    margin-bottom: 4px;
+    padding: 11px 0;
+}
+
+.btn_update {
+    width: 100%;
+    height: auto;
+    padding: 11px 0;
+}
