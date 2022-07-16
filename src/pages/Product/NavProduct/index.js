@@ -45,10 +45,10 @@ const NavProduct = ({linkPro}) => {
                     <span className={styles.Mot}>{proName}</span>
                     <ul className={styles.menuCollection}>
                         <li>
-                            <Link to="/dress">Đầm</Link>
+                            <Link to="/dress">Đầm hai dây</Link>
                         </li>
                         <li>
-                            <Link to="/shirt">Áo</Link>
+                            <Link to="/shirt">Đầm hội</Link>
                         </li>
                         <li>
                             <Link to="/skirt">Chân váy</Link>
