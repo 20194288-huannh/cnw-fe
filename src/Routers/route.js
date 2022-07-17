@@ -5,13 +5,19 @@ import MnDress from '../pages/ManageProduct/MnDress'
 import DetailProduct from '../pages/DetailProduct';
 import User from '../pages/User';
 
-const route = [
+export const publicRoute = [
     {path: "/",  component: <Home />},
     {path: "/dress", component: <Dress />},
     {path: "/account/login", component: <Login/>},
-    {path: "/admin/dress", component: <MnDress/>},
     {path: "/detail", component: <DetailProduct/>},
     {path: "/account", component: <User/>}
 ]
 
-export default route;
+export const privateRoute = [
+    {path: "/admin/dress", component: <MnDress/>},
+    {path: "/",  component: <Home />},
+    {path: "/dress", component: <Dress />},
+    {path: "/account/login", component: <Login/>},
+    {path: "/detail", component: <DetailProduct/>},
+    {path: "/account", component: <User/>}
+]

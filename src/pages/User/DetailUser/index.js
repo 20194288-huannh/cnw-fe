@@ -15,6 +15,11 @@ const DetailUser = ({user}) => {
         }
     })*/
     
+    const Logout = () => {
+        localStorage.removeItem('info_user');
+        window.location.replace('/');
+    }
+
     if(!user){
         return (
             <div className={styles.titleUser}>
@@ -53,10 +58,8 @@ const DetailUser = ({user}) => {
                     <ul>
                         <li onClick={() => setShowFile(true)} className={styles.cursor} >Tài khoản của tôi</li>
                         <li onClick={() => setShowFile(false)} className={styles.cursor}>Đơn hàng</li>
-                        <li onClick={()=>{
-                            //logout
-                        }
-                        } className={styles.cursor}>Đăng xuất</li>
+                        <li onClick={Logout}
+                        className={styles.cursor}>Đăng xuất</li>
                     </ul>
                 </div>
             </div>

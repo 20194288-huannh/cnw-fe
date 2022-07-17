@@ -31,6 +31,9 @@ const AddProduct = ({isDisplay, setShowModalAdd}) => {
     var date = new Date();
 
 
+    const handleCancel = ()=> {
+        window.location.reload();
+    }
     const handleClickUpload = async (e) =>{
         e.preventDefault();
         await fetch('http://localhost:8080/insert_product',{
@@ -67,7 +70,7 @@ const AddProduct = ({isDisplay, setShowModalAdd}) => {
                         <h1>THÔNG TIN SẢN PHẨM</h1>
                         <div>
                             <div>
-                                <button className={styles.btn_cancel_add} onclick={()=>setShowModalAdd(false)}>X</button>
+                                <button className={styles.btn_cancel_add} onclick={handleCancel}>X</button>
                                 <form onSubmit={(e) => handleClickUpload(e)}>
                                     <div className={styles.field_info}><label htmlFor="id" className={styles.labelData}>ID</label><input name="id" id="id" type="text" className={styles.form_control} readOnly={true} /></div>
                                     <div className={styles.field_info}><label htmlFor="name" className={styles.labelData}>Tên Sản Phẩm</label><input value={name}

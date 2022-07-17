@@ -35,6 +35,7 @@ const MnDress = () => {
         fetch('http://localhost:8080/get_product_by_categoryID?CategoryID=1')
         .then(res => res.json())
         .then(products => setProducts(products))
+        
     },[])
 
     const handleUpdateDress= (id) => {
@@ -97,7 +98,7 @@ const MnDress = () => {
                                         <td className={styles.content}>{item.ModificationDate}</td>
                                         <td className={styles.content}>{item.ProductName}</td>
                                         <td className={styles.content}>{item.Description}</td>
-                                        <td className={`${styles.content} ${styles.img_pro}`}><img src={item.Image} alt="" /></td>
+                                        <td className={`${styles.content} ${styles.img_pro}`}><img src={item.Image[0]} alt="" /></td>
                                         <td className={styles.content}>{format_curency(item.Price)}đ</td>
                                         <td className={styles.content}>{item.NewProduct}</td>
                                         <td className={styles.content}>{item.SizeM}</td>
