@@ -1,0 +1,81 @@
+.userInfor{
+    padding-bottom: 25px;
+    border-bottom: solid 1px #ccc;
+    margin-left: 3rem;
+    font-weight: 600;
+}
+.userOption{
+    padding: 30px 0 0 55px;
+    display: flex;
+}
+.userOption>ul{
+    list-style-type: none;
+}
+.userOption>ul>li{
+    padding-top: 1rem;
+}
+.userDetail{
+    padding-bottom: 1.56rem;
+    border-bottom: solid 1px #ccc;
+}
+.userDetails{
+    padding: 2.56rem 0 0 0;
+}
+.userDetails>ul{
+    list-style-type: none;
+}
+.userDetails>ul>li{
+    padding-top: 1rem;
+}
+.nav{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.navTab{
+    border-bottom: 1px solid #ccc;
+}
+.navItem{
+    font-size: 20px;
+}
+.navLink{
+    color: #000;
+    display: block;
+    padding: 20px 30px;
+}
+.navLink:hover{
+    color: #e29481;
+}
+.active{
+    color: #e29481;
+    border-bottom: 1px solid #e29481;
+}
+.titleUser {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 100px 15px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.titleUser h1 {
+    font-size: 44px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.titleUser h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    margin: 50px auto 0;
+    background: #000;
+}
+.cursor{
+    cursor: pointer;
+}
+.cursor:hover{
+    color: #e29481;
+}

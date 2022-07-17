@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook , faInstagram, faYoutube, faTwitter} from "@fortawesome/free-brands-svg-icons"
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
+
 function Footer(){
     return (
         <div>
