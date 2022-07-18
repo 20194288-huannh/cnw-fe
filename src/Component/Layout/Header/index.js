@@ -60,10 +60,10 @@ function Header(){
                                             </Link>
                                         </li>
                                         <li className={styles.subNavItem}>
-                                            <Link to="/accessory">
+                                            <Link to="/product">
                                                 <img alt={styles.anh} src="https://theme.hstatic.net/200000000133/1000569834/14/img_megamenu3_8.jpg?v=5365"
                                                     className={styles.subNavItemImg} />
-                                                <span className={styles.subNavInfo}>Phụ kiện</span>
+                                                <span className={styles.subNavInfo}>Tất cả sản phẩm</span>
                                             </Link>
                                         </li>
                                     </ul>

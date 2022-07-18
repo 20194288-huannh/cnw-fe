@@ -31,10 +31,9 @@ const MainNewProduct = () => {
                     </h2>
                 </div>
                 <div className={`row {styles.mainNewProductSlide}`} >
-                    <div className="c-3"> <Item product={products[0]}/></div>
-                    <div className="c-3"> <Item product={products[1]}/></div>
-                    <div className="c-3"> <Item product={products[2]}/></div>
-                    <div className="c-3"> <Item product={products[3]}/></div>
+                    {products.map((product) => {
+                        return <div key= {product.ProductID} className="c-3"><Item product={product}/></div>
+                    })}
                 </div>
             </div>
         </div>

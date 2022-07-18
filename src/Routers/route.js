@@ -29,7 +29,7 @@ export const publicRoute = [
     {path: "/quanshort", component: <Product CategoryID='4' ProductTypeID='13'/>},
 
     {path: "/account/login", component: <Login/>},
-    {path: "/detail", component: <DetailProduct/>},
+    {path: "/detail/:id", component: <DetailProduct/>},
     {path: "/account", component: <User/>}
 ]
 
@@ -37,7 +37,7 @@ export const privateRoute = [
     {path: "/admin/dress", component: <MnDress/>},
     {path: "/",  component: <Home />},
     {path: "/account/login", component: <Login/>},
-    {path: "/detail", component: <DetailProduct/>},
+    {path: "/detail/:id", component: <DetailProduct/>},
     {path: "/account", component: <User/>},
 
     {path: "/product", component: <Product />},
