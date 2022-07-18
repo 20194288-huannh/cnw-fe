@@ -7,14 +7,7 @@ const DetailUser = ({user}) => {
     const [showFile, setShowFile] = useState(true);
     const [waitConfirm, setWaitConfirm] = useState(1);
     const [status, setStatus] = useState('Chờ xử lý')
-    /*const [deleteOrder, {loading, error}] = useMutation(DELETE_ORDER, {
-        onCompleted: (data)=>{
-            showSuccessToast('Hủy thành công');
-            setWaitConfirm(4)
-            setStatus('Hủy đơn hàng')
-        }
-    })*/
-    
+
     const Logout = () => {
         localStorage.removeItem('info_user');
         window.location.replace('/');

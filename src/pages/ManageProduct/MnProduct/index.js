@@ -27,7 +27,7 @@ const customStyles = {
   };
 
 
-const MnDress = () => {
+const MnProduct = () => {
     const [CategoryID, setCategoryID] = useState(1)
     const [showModalRemove, setShowModalRemove] = useState(-1)
     const [showModalAdd, setShowModalAdd]= useState(false)
@@ -172,4 +172,4 @@ const MnDress = () => {
     )
 }
 
-export default MnDress
+export default MnProduct

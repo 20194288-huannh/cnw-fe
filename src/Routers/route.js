@@ -1,6 +1,6 @@
 import Home from '../pages/Home/index'
 import Login from '../pages/Login';
-import MnDress from '../pages/ManageProduct/MnDress'
+import MnProduct from '../pages/ManageProduct/MnProduct'
 import DetailProduct from '../pages/DetailProduct';
 import Product from '../pages/Product'
 import User from '../pages/User';
@@ -34,7 +34,7 @@ export const publicRoute = [
 ]
 
 export const privateRoute = [
-    {path: "/admin/dress", component: <MnDress/>},
+    {path: "/admin/product", component: <MnProduct/>},
     {path: "/",  component: <Home />},
     {path: "/account/login", component: <Login/>},
     {path: "/detail/:id", component: <DetailProduct/>},

@@ -39,7 +39,7 @@ const UpdateProduct = ({isDisplay, setShowModalUpdate, product}) => {
                     ProductID: product.ProductID,
                     ProductName: name,
                     Description: description,
-                    Image: image,
+                    Image: image.join(","),
                     Price: price,
                     ProductTypeID: type,
                     NewProduct: newPro,
@@ -53,8 +53,10 @@ const UpdateProduct = ({isDisplay, setShowModalUpdate, product}) => {
                 })
             })
             .then(res => res.text())
-            .then(res => console.log(res))
-            //window.location.reload();
+            .then(res => {
+                alert("Đã cập nhật thành công!")
+            })
+            window.location.reload();
     }
     return (
         <Modal
@@ -62,53 +64,58 @@ const UpdateProduct = ({isDisplay, setShowModalUpdate, product}) => {
                 style={customStyles}
                 ariaHideApp={false}
             >
-                <div className="modal-body-react" >
-                    <div onclick={()=>setShowModalUpdate(false)}></div>
-                    <div className="container" style={{overflow: 'auto'}}>
-                        <h1 className="title">THÔNG TIN SẢN PHẨM</h1>
-                        <div className="info row">
-                            <div className="info-left col-6 ">
-                                <form class="" onSubmit={(e) => handleClickUpload(e)}>
-                                    <div class="field-info"><label htmlFor="id" class="">ID</label><input name="id" id="id" type="text" class="form-control" readOnly={true} /></div>
-                                    <div class="field-info"><label htmlFor="name" class="">Tên Sản Phẩm</label><input value={name}
+                <div className={styles.modal_body_react} >
+                    <div style={{overflow: 'auto'}}>
+                        <div style={{display: 'flex'}}>
+                            <h1>THÔNG TIN SẢN PHẨM</h1>
+                            <button className={styles.btn_cancel_add} onClick={() => setShowModalUpdate(false)}>X</button>
+                        </div>
+                        
+                        <div>
+                            <div>
+                                
+                                <form onSubmit={(e) => handleClickUpload(e)}>
+                                    <div className={styles.field_info}><label htmlFor="id" className={styles.labelData}>ID</label><input name="id" id="id" type="text" className={styles.form_control} readOnly={true} /></div>
+                                    <div className={styles.field_info}><label htmlFor="name" className={styles.labelData}>Tên Sản Phẩm</label><input value={name}
                                     onChange={(e)=>{setName(e.target.value)}}
-                                    name="name" id="name"type="text" required class="form-control"/>
+                                    name="name" id="name" type="text" required className={styles.form_control}/>
                                     </div>
-                                    <div class="field-info"><label htmlFor="des" class="">Mô Tả</label><input value={description}
+                                    <div className={styles.field_info}><label htmlFor="des" className={styles.labelData}>Mô Tả</label><input value={description}
                                     onChange={(e)=>{setDescription(e.target.value)}}
-                                    name="des" id="des" required class="form-control" /></div>
-                                    <div class="field-info"><label htmlFor="price" class="">Giá Tiền</label><input value={price}
+                                    name="des" id="des" required className={styles.form_control} /></div>
+                                    <div className={styles.field_info}><label htmlFor="price" className={styles.labelData}>Giá Tiền</label><input value={price}
                                     onChange={(e)=>{setPrice(e.target.value)}}
-                                    name="price" id="price" type="number" required class="form-control"/></div>
-                                    <div class="field-info"><label htmlFor="code-pro" class="">Sản phẩm mới</label><input value={newPro}
+                                    name="price" id="price" type="number" required className={styles.form_control}/></div>
+                                    <div className={styles.field_info}><label htmlFor="new-pro" className={styles.labelData}>Sản phẩm mới</label><input value={newPro}
                                     onChange={(e)=>{setNewPro(e.target.value)}}
-                                    name="code-pro" id="code-pro" type="text" required class="form-control"/></div>
-                                    <div class="field-info"><label htmlFor="type-pro" class="">Loại sản phẩm</label><input value={type}
+                                    name="new-pro" id="new-pro" type="text" required className={styles.form_control}/></div>
+                                    <div className={styles.field_info}><label htmlFor="type-pro" className={styles.labelData}>Loại sản phẩm</label><input value={type}
                                     onChange={(e)=>{setType(e.target.value)}}
-                                    name="code-pro" id="code-pro" type="text" required class="form-control"/></div>
-                                    <div class="field-info"><label htmlFor="size-M" class="">Size-M</label><input value={size_M}
+                                    name="type-pro" id="type-pro" type="text" required className={styles.form_control}/></div>
+                                    <div className={styles.field_info}><label htmlFor="size-M" className={styles.labelData}>Size-M</label><input value={size_M}
                                     onChange={(e)=>{setSize_M(e.target.value)}}
-                                    name="size-M" id="size-M" type="number" required class="form-control"/></div>
-                                    <div class="field-info"><label htmlFor="size-S" class="">Size-S</label><input value={size_S} name="size-S"
+                                    name="size-M" id="size-M" type="number" required className={styles.form_control}/></div>
+                                    <div className={styles.field_info}><label htmlFor="size-S" className={styles.labelData}>Size-S</label><input value={size_S} name="size-S"
                                     onChange={(e)=>{setSize_S(e.target.value)}}
-                                    id="size-S" type="number" required class="form-control"/></div>
-                                    <div class="field-info"><label htmlFor="size-L" class="">Size-L</label><input value={size_L} name="size-L"
+                                    id="size-S" type="number" required className={styles.form_control}/></div>
+                                    <div className={styles.field_info}><label htmlFor="size-L" className={styles.labelData}>Size-L</label><input value={size_L} name="size-L"
                                     onChange={(e)=>{setSize_L(e.target.value)}}
-                                    id="size-L" type="number" class="form-control"/></div>
-                                    <div class="field-info"><label htmlFor="size-XL" class="">Size-XL</label><input value={size_XL}
+                                    id="size-L" type="number" className={styles.form_control}/></div>
+                                    <div className={styles.field_info}><label htmlFor="size-XL" className={styles.labelData}>Size-XL</label><input value={size_XL}
                                     onChange={(e)=>{setSize_XL(e.target.value)}}
-                                    name="size-XL" id="size-XL" type="number" required class="form-control"/></div>
-                                    <div class="field-info"><label htmlFor="material" class="">Chất liệu</label><input value={material}
+                                    name="size-XL" id="size-XL" type="number" required className={styles.form_control}/></div>
+                                    <div className={styles.field_info}><label htmlFor="material" className={styles.labelData}>Chất liệu</label><input value={material}
                                     onChange={(e)=>{setMaterial(e.target.value)}}
-                                    name="material" id="material" type="text" required class="form-control"/></div>
-                                    <div class="field-info"><label htmlFor="color" class="">Màu Sắc</label><input value={color} 
+                                    name="material" id="material" type="text" required className={styles.form_control}/></div>
+                                    <div className={styles.field_info}><label htmlFor="color" className={styles.labelData}>Màu Sắc</label><input value={color} 
                                     onChange={(e)=>{setColor(e.target.value)}}
-                                    name="color" id="color" type="text" required class="form-control"/></div>
-                                    <div class="field-info"><label htmlFor="img" class="">Image</label><input value={image} 
+                                    name="color" id="color" type="text" required className={styles.form_control}/></div>
+                                    <div className={styles.field_info}><label htmlFor="img" className={styles.labelData}>Image</label><input value={image} 
                                     onChange={(e)=>{setImage(e.target.value)}}
-                                    name="image" id="image" type="text" required class="form-control"/>
+                                    name="image" id="image" type="text" required className={styles.form_control}/>
                                     </div>
-                                    <button type="submit" class="mt-1 btn btn-success">Thêm mới</button>
+                                    <button type="submit" className={styles.btn_add_product}>Cập nhật</button>
+                                    
                                 </form>
                             </div>
                             

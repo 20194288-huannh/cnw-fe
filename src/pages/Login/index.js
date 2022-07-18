@@ -35,7 +35,7 @@ function Login(){
         })
         .then(res => res.json())
         .then(user => localStorage.setItem("info_user", JSON.stringify(user)))
-        window.location.replace('/')
+        //window.location.replace('/')
     }
 
 

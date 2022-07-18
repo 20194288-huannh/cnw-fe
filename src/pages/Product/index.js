@@ -25,46 +25,48 @@ const Product = ({CategoryID, ProductTypeID}) => {
     }
     const a = ">>";
     
-    if (ProductTypeID){
-        useEffect(()=>{
-            async function fetchData() {
-                var response = await fetch(`http://localhost:8080/get_num_product_by_ProductTypeID?ProductTypeID=${ProductTypeID}`)
-                var data = await response.json();
-                numOfPages = Math.ceil(data / 4);
-                
-                var response = await fetch(`http://localhost:8080/get_products_limit_by_id?ProductTypeID=${ProductTypeID}&offset=0&count=16`)
-                var data = await response.json();
-                setProducts(data);
-              }
-              fetchData();
-        }, [CategoryID, ProductTypeID])
-    } else if (CategoryID){
-        useEffect(()=>{
-            async function fetchData() {
-                var response = await fetch(`http://localhost:8080/get_num_product_by_CategoryID?CategoryID=${CategoryID}`)
-                var data = await response.json();
-                numOfPages = Math.ceil(data / 4);
+    
 
-                var response = await fetch(`http://localhost:8080/get_products_limit_by_id?CategoryID=${CategoryID}&offset=0&count=4`)
-                var data = await response.json();
-                setProducts(data);
-              }
-              fetchData();
-        }, [CategoryID, ProductTypeID])
-    } else {
         useEffect(()=>{
-            async function fetchData() {
-                var response = await fetch(`http://localhost:8080/get_num_product`)
-                var data = await response.json();
-                numOfPages = Math.ceil(data / 4);
+            if (ProductTypeID){
+                async function fetchData() {
+                    var response = await fetch(`http://localhost:8080/get_num_product_by_ProductTypeID?ProductTypeID=${ProductTypeID}`)
+                    var data = await response.json();
+                    numOfPages = Math.ceil(data / 4);
+                    
+                    var response = await fetch(`http://localhost:8080/get_products_limit_by_id?ProductTypeID=${ProductTypeID}&offset=0&count=16`)
+                    var data = await response.json();
+                    setProducts(data);
+                }
+                fetchData();
+            }
+            else if (CategoryID){
+                async function fetchData() {
+                    var response = await fetch(`http://localhost:8080/get_num_product_by_CategoryID?CategoryID=${CategoryID}`)
+                    var data = await response.json();
+                    numOfPages = Math.ceil(data / 4);
 
-                var response = await fetch(`http://localhost:8080/get_limit_products?offset=${page}&count=4`)
-                var data = await response.json();
-                setProducts(data);
-              }
-              fetchData();
+                    var response = await fetch(`http://localhost:8080/get_products_limit_by_id?CategoryID=${CategoryID}&offset=0&count=4`)
+                    var data = await response.json();
+                    setProducts(data);
+                }
+                fetchData();
+            }
+            else {
+                async function fetchData() {
+                    var response = await fetch(`http://localhost:8080/get_num_product`)
+                    var data = await response.json();
+                    numOfPages = Math.ceil(data / 4);
+
+                    var response = await fetch(`http://localhost:8080/get_limit_products?offset=${page}&count=4`)
+                    var data = await response.json();
+                    setProducts(data);
+                }
+                fetchData();
+            } 
+            
         }, [CategoryID, ProductTypeID])
-    }
+    
 
     return (
         <React.Fragment>
@@ -100,5 +102,5 @@ const Product = ({CategoryID, ProductTypeID}) => {
             <FindShop />
         </React.Fragment>
     )
-}
+}            
 export default Product;

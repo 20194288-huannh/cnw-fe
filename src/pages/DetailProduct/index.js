@@ -16,27 +16,82 @@ function DetailProduct() {
     const [keyActive, setkeyActive] = useState("");
     const [quantity, setQuantity] = useState(1);
     const [activeImg, setActiveImg] = useState(0);
-    useEffect(()=>{
+    useEffect(() => {
         async function fetchData() {
             var response = await fetch(`http://localhost:8080/get_product_by_id?ProductID=${ProductID}`)
             var data = await response.json();
             setProduct(data);
             console.log(data)
-          }
-          fetchData();
+        }
+        fetchData();
     }, [ProductID])
-    
-    if (product == undefined){
-        return ;
+
+    if (product == undefined) {
+        return;
     }
-    
+    var user = JSON.parse(localStorage.getItem("info_user"));
+    var date = new Date()
 
     const handleAddCart = () => {
         if (!keyActive) {
-            showSuccessToast("Vui lòng chọn size của sản phẩm", "Cảnh báo!", "error");
+            alert("Vui long chon size!")
         } else {
-            showSuccessToast("Bạn đã thêm vào giỏ hàng", "Thành công!", "success");
+            fetch('http://localhost:8080/insert_order', {
+                method: 'POST',
+                body: JSON.stringify({
+                    CustomerID: user[0].UserID,
+                    ProductID: ProductID,
+                    Price: product[0].Price,
+                    Size: keyActive,
+                    Quantity: quantity,
+                    Discount: 0,
+                    Status: "Ok"
+                })
+            })
+                .then(res => res.text())
+                .then(res => {
+                    if (res == 1) {
+                        if (keyActive == "M") {
+                            product[0].SizeM = product[0].SizeM - quantity;
+                            console.log("M")
+                        } else if (keyActive == "L") {
+                            product[0].SizeL = product[0].SizeL - quantity;
+                        } else if (keyActive == "S") {
+                            product[0].SizeS = product[0].SizeS - quantity;
+                            console.log("S")
+                        } else if (keyActive == "XL") {
+                            product[0].SizeXL = product[0].SizeXL - quantity;
+                            console.log("XL")
+                        }
+                        fetch('http://localhost:8080/update_product', {
+                            method: 'PUT',
+                            body: JSON.stringify({
+                                ProductID: ProductID,
+                                ProductName: product[0].ProductName,
+                                Description: product[0].Description,
+                                Image: product[0].Image.join(","),
+                                Price: product[0].Price,
+                                ProductTypeID: product[0].ProductTypeID,
+                                NewProduct: product[0].NewProduct,
+                                SizeM: product[0].SizeM,
+                                SizeS: product[0].SizeS,
+                                SizeL: product[0].SizeL,
+                                SizeXL: product[0].SizeXL,
+                                Material: product[0].Material,
+                                Color: product[0].Color,
+                                ModificationDate: date
+                            })
+                        })
+                            .then(res => res.text())
+                            .then(res => console.log(res))
+                        alert("Mua hàng thành công!")
+                    }
+                })
+
+
+
         }
+
     };
     return (
         <div>
@@ -65,7 +120,7 @@ function DetailProduct() {
                     </div>
                     <div className={`c-5 ${styles.productDetails}`}>
                         <h1>{product[0].ProductName}</h1>
-                
+
                         <div className={styles.desProduct}>
                             <span>Thông tin sản phẩm:</span>
                             <p className={styles.desTitle}>{product[0].Description}</p>
@@ -76,7 +131,7 @@ function DetailProduct() {
                             <p>Size</p>
                             <div className={styles.option}>
                                 {size.map((item, index) => {
-                                var sizeType = sizeTest[index];
+                                    var sizeType = sizeTest[index];
                                     return (
                                         <div
                                             className={`${styles.optionContent} ${keyActive === item && styles.activeSize
