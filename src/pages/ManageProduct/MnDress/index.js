@@ -25,18 +25,21 @@ const customStyles = {
       height: '20%',
     },
   };
+
+
 const MnDress = () => {
+    const [CategoryID, setCategoryID] = useState(1)
     const [showModalRemove, setShowModalRemove] = useState(-1)
     const [showModalAdd, setShowModalAdd]= useState(false)
     const [showModalUpdate, setShowModalUpdate]= useState(false);
     const [flag, setFlag] = useState(0);
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:8080/get_product_by_categoryID?CategoryID=1')
+        fetch(`http://localhost:8080/get_product_by_categoryID?CategoryID=${CategoryID}`)
         .then(res => res.json())
         .then(products => setProducts(products))
         
-    },[])
+    },[CategoryID])
 
     const handleUpdateDress= (id) => {
         setFlag(id);
@@ -55,13 +58,31 @@ const MnDress = () => {
             .then(res => console.log(res))
             window.location.reload();
     }
+
+    const showDress = () =>{
+        setCategoryID(1)
+    }
+
+    const showShirt = () =>{
+        setCategoryID(2)
+    }
+    const showTrouser = () =>{
+        setCategoryID(4)
+    }
+    const showSkirt = () =>{
+        setCategoryID(3)
+    }
+
     return (
         <div>
             
             <div className={styles.margin_bottom}>
             <div className={styles.table_product}>
             <div className={styles.table_product_title}>
-                    <div className={styles.title_table_product_content}>ĐẦM</div>
+                    <div className={styles.title_table_product_content} onClick={showDress}>Đầm</div>
+                    <div className={styles.title_table_product_content} onClick={showShirt}>Áo</div>
+                    <div className={styles.title_table_product_content} onClick={showSkirt}>Chân váy</div>
+                    <div className={styles.title_table_product_content} onClick={showTrouser}>Quần</div>
                     <div className={styles.admin_right_product}>
                     <button className='btn_add' onClick={handleAddDress}>Thêm mới</button>
                     </div>
