@@ -84,7 +84,7 @@ function Header(){
                     </div>
                 </div>
                 <div className={styles.notify}>
-                    <Link to="/account/login" ><FontAwesomeIcon icon={faUser} className={styles.icon}/></Link>
+                    <Link to="/account" ><FontAwesomeIcon icon={faUser} className={styles.icon}/></Link>
                     <div className={styles.notifyInner}>
                         Đăng nhập
                     </div>

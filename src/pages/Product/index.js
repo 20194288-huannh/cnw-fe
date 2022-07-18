@@ -23,6 +23,7 @@ const Product = ({CategoryID, ProductTypeID}) => {
     } else {
         linkPro = 'product';
     }
+    const a = ">>";
     
     if (ProductTypeID){
         useEffect(()=>{
@@ -76,10 +77,28 @@ const Product = ({CategoryID, ProductTypeID}) => {
                     
                 }
             </div>
+            <div className={styles.pagination}>
+                <span className={`${styles.pageNode} ${styles.current}`}>
+                    <span className="titleNumber">1</span>
+                </span>
+                <span className={`${styles.pageNode}`}>
+                    <span className="titleNumber">2</span>
+                </span>
+                <span className={`${styles.pageNode}`}>
+                    <span className="titleNumber">3</span>
+                </span>
+                <span className={`${styles.pageNode}`}>
+                    <span className="titleNumber">...</span>
+                </span>
+                <span className={`${styles.pageNode} `}>
+                    <span className="titleNumber">12</span>
+                </span>
+                <span className={`${styles.pageNode} `}>
+                    <span className="titleNumber"> {a} </span>
+                </span>
+            </div>
             <FindShop />
         </React.Fragment>
     )
 }
 export default Product;
-
-    

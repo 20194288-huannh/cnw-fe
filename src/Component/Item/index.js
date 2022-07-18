@@ -1,6 +1,10 @@
 import styles from './item.module.css'
 import { Link } from 'react-router-dom'
 function Item({product}){
+    if (product == undefined){
+        console.log(0);
+        return 0;
+    }
     let hidden = product.NewProduct ? "" : styles.hidden;
     return (
     <div className={`${styles.newProductSlideItem} `} >
