@@ -2,30 +2,50 @@ import styles from './NavProduct.module.css'
 import { Link } from 'react-router-dom'
 const NavProduct = ({linkPro}) => {
     let proName;
+    let productTypes;
     if( linkPro === "dress") {
-        proName = "Đầm"
+        proName = "Đầm";
+        productTypes = [
+            ['damhaiday',"Đầm hai dây"], 
+            ['dammaxi',"Đầm maxi"], 
+            ['damsatnach', "Đầm sát nách"],
+            // ['damtaydai', "Đầm tay dài"]
+        ];
     }
     if( linkPro === "shirt") {
         proName = "Áo"
-    }
-    if( linkPro === "trousers") {
-        proName = "Quần"
+        productTypes = [
+            ['aosomi',"Áo sơ mi"], 
+            ['aokieu',"Áo kiểu"], 
+            ['aokhoac', "Áo khoác"]
+        ];
     }
     if( linkPro === "skirt") {
         proName = "Chân Váy"
+        productTypes = [
+            ['vaymaxi',"Chân váy Maxi"], 
+            ['vaymidi',"Chân váy Midi"], 
+            ['vaymini', "Chân váy Mini"]
+        ];
+    }
+    if( linkPro === "trousers") {
+        proName = "Quần"
+        productTypes = [
+            ['quandai',"Quần dài"], 
+            ['quanlung',"Quần lửng"], 
+            ['quanshort', "Quần short"]
+        ];
     }
     if( linkPro === "product") {
         proName = "Sản phẩm"
+        productTypes = [
+            ['dress',"Đầm"], 
+            ['shirt',"Áo"], 
+            ['trousers', "Quần"],
+            ['skirt',"Chân váy"]
+        ];
     }
-    if( linkPro === "accessory") {
-        proName = "Phụ kiện"
-    }
-    // const handleNavProduct = (item) => {
-    //     return `detail/${item.codePro}` === linkPro
-    // }
-    // if(linkPro === ) {
-    //     linkPro = product.find((item) => handleNavProduct(item)).name
-    // }
+
     return (
         <div className={styles.wrapper}>
             <ul className={styles.itemscope}>
@@ -44,21 +64,13 @@ const NavProduct = ({linkPro}) => {
                 <div className="c-6">
                     <span className={styles.Mot}>{proName}</span>
                     <ul className={styles.menuCollection}>
-                        <li>
-                            <Link to="/dress">Đầm</Link>
-                        </li>
-                        <li>
-                            <Link to="/shirt">Áo</Link>
-                        </li>
-                        <li>
-                            <Link to="/skirt">Chân váy</Link>
-                        </li>
-                        <li>
-                            <Link to="/trousers">Quần</Link>
-                        </li>
-                        <li>
-                            <Link to="/accessory">Phụ kiện</Link>
-                        </li>
+                        {
+                            productTypes.map((productType)=>(
+                                <li key = {productType[0]}>
+                                    <Link to={`/${productType[0]}`}>{productType[1]}</Link>
+                                </li>
+                            ))
+                        }
                     </ul>
                 </div>
                 <div className="col-6">
