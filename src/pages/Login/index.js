@@ -35,7 +35,8 @@ function Login(){
         })
         .then(res => res.json())
         .then(user => localStorage.setItem("info_user", JSON.stringify(user)))
-        window.location.reload()
+        alert("Bạn đã đăng nhập thành công")
+        window.location.replace('/account');
     }
 
     if((JSON.parse(localStorage.getItem('info_user')))){

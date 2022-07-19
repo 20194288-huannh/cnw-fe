@@ -4,6 +4,7 @@ import MnProduct from '../pages/ManageProduct/MnProduct'
 import DetailProduct from '../pages/DetailProduct';
 import Product from '../pages/Product'
 import User from '../pages/User';
+import MnOrder from '../pages/ManageOrder/MnOrder';
 
 export const publicRoute = [
     {path: "/",  component: <Home />},
@@ -35,6 +36,7 @@ export const publicRoute = [
 
 export const privateRoute = [
     {path: "/admin/product", component: <MnProduct/>},
+    {path: "/admin/order", component: <MnOrder/>},
     {path: "/",  component: <Home />},
     {path: "/login", component: <Login/>},
     {path: "/detail/:id", component: <DetailProduct/>},
