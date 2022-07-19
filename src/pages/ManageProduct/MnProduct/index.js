@@ -90,22 +90,22 @@ const MnProduct = () => {
             
             <table className={styles.table}>
                         <thead>
-                            <tr className="table-tr">
-                                <th scope="col" class={styles.table_title_pro} style={{width:" 1%"}}>STT</th>
-                                <th scope="col" class={styles.table_title_pro} style={{width:" 1%"}}>ID</th>
-                                <th scope="col" class={styles.table_title_pro} style={{width:" 10%"}}>NGÀY SỬA ĐỔI</th>
-                                <th scope="col" class={styles.table_title_pro} style={{width:" 13%"}}>TÊN</th>
-                                <th scope="col" class={styles.table_title_pro}>MÔ TẢ</th>
-                                <th scope="col" class={styles.table_title_pro} style={{width:" 5%"}}>ẢNH</th>
-                                <th scope="col" class={styles.table_title_pro} style={{width:" 5%"}}>GIÁ</th>
-                                <th scope="col" class={styles.table_title_pro} style={{width:" 5%"}}>SẢN PHẨM MỚI</th>
-                                <th scope="col" class={styles.table_title_pro} style={{width:" 5%"}}>Size_M</th>
-                                <th scope="col" class={styles.table_title_pro} style={{width:" 5%"}}>Size_S</th>
-                                <th scope="col" class={styles.table_title_pro} style={{width:" 5%"}}>Size_L</th>
-                                <th scope="col" class={styles.table_title_pro} style={{width:" 5%"}}>Size_XL</th>
-                                <th scope="col" class={styles.table_title_pro} style={{width:" 7%"}}>CHẤT LIỆU</th>
-                                <th scope="col" class={styles.table_title_pro} style={{width:" 6%"}}>MÀU</th>
-                                <th scope="col" class={styles.table_title_pro} style={{width:" 7%"}}>THAO TÁC</th>
+                            <tr className="">
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 1%"}}>STT</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 1%"}}>ID</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 10%"}}>NGÀY SỬA ĐỔI</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 13%"}}>TÊN</th>
+                                <th scope="col" className={styles.table_title_pro}>MÔ TẢ</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 5%"}}>ẢNH</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 5%"}}>GIÁ</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 5%"}}>SẢN PHẨM MỚI</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 5%"}}>Size_M</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 5%"}}>Size_S</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 5%"}}>Size_L</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 5%"}}>Size_XL</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 7%"}}>CHẤT LIỆU</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 6%"}}>MÀU</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 7%"}}>THAO TÁC</th>
                                 
                             </tr>
                         </thead>

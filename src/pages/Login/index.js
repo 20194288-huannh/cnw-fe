@@ -24,7 +24,7 @@ function Login(){
     const handleClickUpload = () => {
 
     }
-
+    
     const handleLogin = () => {
         fetch("http://localhost:8080/login", {
             method: 'POST',
@@ -35,10 +35,12 @@ function Login(){
         })
         .then(res => res.json())
         .then(user => localStorage.setItem("info_user", JSON.stringify(user)))
-        //window.location.replace('/')
+        window.location.reload()
     }
 
-
+    if((JSON.parse(localStorage.getItem('info_user')))){
+        window.location.replace('/account');
+    }
 
     return (
     <div className={styles.wrapper}>
@@ -50,7 +52,7 @@ function Login(){
                 <Link to="/account">Tài khoản</Link>
             </li>
             <li>
-                <Link to="/account/login">Đăng nhập</Link>
+                <Link to="/login">Đăng nhập</Link>
             </li>
         </ul>
         <div className='row'>

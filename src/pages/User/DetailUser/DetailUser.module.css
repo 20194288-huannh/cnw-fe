@@ -79,3 +79,22 @@
 .cursor:hover{
     color: #e29481;
 }
+
+.table {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+.table_title_pro, .content {
+    text-align: center;
+    width: -1%;
+    border: none;
+    border-radius: 10px;
+}
+
+.img_pro>img{
+    width: 10rem;
+}
+

@@ -28,7 +28,7 @@ export const publicRoute = [
     {path: "/quanlung", component: <Product CategoryID='4' ProductTypeID='12'/>},
     {path: "/quanshort", component: <Product CategoryID='4' ProductTypeID='13'/>},
 
-    {path: "/account/login", component: <Login/>},
+    {path: "/login", component: <Login/>},
     {path: "/detail/:id", component: <DetailProduct/>},
     {path: "/account", component: <User/>}
 ]
@@ -36,7 +36,7 @@ export const publicRoute = [
 export const privateRoute = [
     {path: "/admin/product", component: <MnProduct/>},
     {path: "/",  component: <Home />},
-    {path: "/account/login", component: <Login/>},
+    {path: "/login", component: <Login/>},
     {path: "/detail/:id", component: <DetailProduct/>},
     {path: "/account", component: <User/>},
 

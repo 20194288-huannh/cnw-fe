@@ -3,35 +3,35 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUser} from "@fortawesome/free-solid-svg-icons"
 import { useState } from "react";
 
-const DetailUser = ({user}) => {
+const format_curency = (a)=> {
+        
+    a=a.toString();
+    a = a.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+    
+    return a;
+}
+
+const DetailUser = () => {
     const [showFile, setShowFile] = useState(true);
-    const [waitConfirm, setWaitConfirm] = useState(1);
-    const [status, setStatus] = useState('Chờ xử lý')
+    const [order, setOrder] = useState([]);
+    var user = JSON.parse(localStorage.getItem('info_user'));
 
     const Logout = () => {
         localStorage.removeItem('info_user');
         window.location.replace('/');
     }
 
-    if(!user){
-        return (
-            <div className={styles.titleUser}>
-                <h1>Tài khoản của bạn</h1>
-                <div className="d-inline-block mt-2">
-                    <span>Quý khách vui lòng đăng nhập để tiếp tục</span>
-                    <button type="button" 
-                    className="btn btn-dark addCart mt-2 "
-                    onClick={()=>{
-                        //login
-                    }}
-                    >
-                        Đăng nhập
-                    </button>
-                </div>
-            </div>
-        )
+    const showOrder = () => {
+        fetch(`http://localhost:8080/get_order_by_id?CustomerID=${user[0].UserID}&offset=0&count=4`)
+        .then(res => res.json())
+        .then(order => setOrder(order))
     }
-    const arrOrder = user.orders.filter(item => item.status === status) || [];
+
+    
+    if(!user){
+        window.location.replace('/login');
+    }
+    
     return (
         <div className="row">
             <div className="c-3">
@@ -66,97 +66,68 @@ const DetailUser = ({user}) => {
                         </div>
                     ):(
                         <ul className={`${styles.nav} ${styles.navTab}`}>
-                            <li className={`${styles.navItem} ${styles.cursor}`} onClick={()=>{
-                                setWaitConfirm(1)
-                                setStatus('Chờ xử lý')    
-                            }}>
-                                <h5 className={waitConfirm===1?`${styles.navLink} ${styles.active}`:`${styles.navLink}`} aria-current="page" href="#">Chờ xử lý</h5>
-                            </li>
-                            <li className={`${styles.navItem} ${styles.cursor}`} onClick={()=>{
-                                setWaitConfirm(2)
-                                setStatus('Đang giao hàng')    
-                            }}>
-                                <h5 className={waitConfirm===2?`${styles.navLink} ${styles.active}`:`${styles.navLink}`} href="#">Đang giao</h5>
-                            </li>
-                            <li className={`${styles.navItem} ${styles.cursor}`} onClick={()=>{
-                                setWaitConfirm(3)
-                                setStatus('Đã giao hàng')    
-                            }}>
-                                <h5 className={waitConfirm===3?`${styles.navLink} ${styles.active}`:`${styles.navLink}`} href="#">Đã giao</h5>
-                            </li>
-                            <li className={`${styles.navItem} ${styles.cursor}`} onClick={()=>{
-                                setWaitConfirm(4)
-                                setStatus('Hủy đơn hàng')    
-                            }}>
-                                <h5 className={waitConfirm===4?`${styles.navLink} ${styles.active}`:`${styles.navLink}`} href="#">Đã hủy</h5>
+                            <li className={`${styles.navItem} ${styles.cursor}`} onClick={showOrder}>
+                                <h5 className={`${styles.navLink} ${styles.active}`} aria-current="page" href="#">Đơn hàng đã đặt</h5>
                             </li>
                         </ul>
                     )
                 }
                    
                 </>
+                {console.log(showFile)}
                 <div className={styles.userDetails}>
                     <ul>
                     {
                         showFile?(<>
-                             <li>Tên Khách Hàng: {user.name}</li>
-                                <li>Số Điện Thoại: {user.phoneNumber}</li>
-                                <li>Email: {user.email}</li>
-                                <li>Địa Chỉ: {user.address}</li>
+                             <li>Tên Khách Hàng: {user[0].Name}</li>
+                                <li>Số Điện Thoại: {user[0].PhoneNumber}</li>
+                                <li>Email: {user[0].Email}</li>
+                                <li>Địa Chỉ: {user[0].Address}</li>
                             </>
                                
                         ):(
-                            arrOrder.length===0?<h6>Bạn không có đơn hàng nào</h6>:
-                            arrOrder.map(item => {
-                                const arrProduct = item.namePro.map((pro) => {
-                                    return {
-                                        infor: pro,
-                                        //img: product.find((item)=> item.codePro===pro.slice(pro.length-10, pro.length))
-                                    }
-                                })
+                            order.length===0?<h6>Bạn không có đơn hàng nào</h6>:
+                        <table className={styles.table}>
+                            <thead>
+                            <tr className="">
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 1%"}}>STT</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 1%"}}>ID</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 5%"}}>NGÀY MUA</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 10%"}}>TÊN SẢN PHẨM</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 10%"}}>MÔ TẢ</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 5%"}}>ẢNH</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 5%"}}>GIÁ</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 5%"}}>SỐ LƯỢNG</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 5%"}}>Size</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 7%"}}>CHẤT LIỆU</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 6%"}}>MÀU</th>
+                                <th scope="col" className={styles.table_title_pro} style={{width:" 6%"}}>TỔNG TIỀN</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            {order.map((item, index) => {
                                 return (
-                                    <div style={{borderBottom:'solid 1px #ccc', padding:'1rem 0'}}>
-                                        {
-                                            waitConfirm===1&&
-                                            <div className="d-flex justify-content-end">
-                                                <button type="button" class="btn btn-danger" onClick={()=>{
-                                                    // Huy don hang
-                                                }}>Hủy đơn hàng</button>
-                                            </div>
-                                        }
-                                        {
-                                            arrProduct.map((order, index) => {
-                                                var createdAt = new Date(parseFloat(item.createdAt));
-                                                var updatedAt = new Date(parseFloat(item.updatedAt));
-                                                return (
-                                                        <li className="header__cart-item" style={{padding:'0', marginTop:'1rem'}} key={index}>
-                                                            <img src={order.img.img[0]} alt="" style={{width:'10%'}}/>
-                                                            <div className="d-flex flex-column" style={{width:'100%'}}>
-                                                                <div className="header__cart-item-info d-flex justify-content-between" style={{width:'100%'}}>
-                                                                    <div >
-                                                                        <h5 className="header__cart-item-name" style={{paddingLeft:'1rem'}}>{order.infor}</h5>
-                                                                    </div>
-                                                                    
-                                                                    <div>
-                                                                        <h5>{order.img.price}đ</h5>
-                                                                    </div>
-                                                                </div>
-                                                                <div>
-                                                                    <h5 className="header__cart-item-name" style={{paddingLeft:'1rem'}}>Ngày đặt: {createdAt.toLocaleString()}</h5>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                )
-                                            })
-                                        }
-                                        <div className="d-flex justify-content-end" >
-                                            <h5 style={{padding: '1rem',
-                                            backgroundColor: '#e29481'}}>Tổng giá tiền: {item.price}đ</h5>
-                                        </div>
-                                    </div>
+                                    <tr key={item.OrderID}>
+                                        <th scope="row">{index + 1}</th>
+                                        <td className={styles.content}>{item.OrderID}</td>
+                                        <td className={styles.content}>{item.Time}</td>
+                                        <td className={styles.content}>{item.ProductName}</td>
+                                        <td className={styles.content}>{item.Description}</td>
+                                        <td className={`${styles.content} ${styles.img_pro}`}><img src={item.Image[0]} alt="" /></td>
+                                        <td className={styles.content}>{format_curency(item.Price)}đ</td>
+                                        <td className={styles.content}>{item.Quantity}</td>
+                                        <td className={styles.content}>{item.Size}</td>
+                                        <td className={styles.content}>{item.Material}</td>
+                                        <td className={styles.content}>{item.Color}</td>
+                                        <td className={styles.content}>{item.Quantity * item.Price}</td>
+                                    </tr>
                                 )
-                            })
-                            
+                            }  
+                            )}
+        
+                        </tbody>
+                        </table>   
                         )
                     }
                     </ul>
