@@ -56,10 +56,10 @@ function Login(){
             </li>
         </ul>
         <div className='row'>
-            <div className={`c-6 ${styles.header}`} >
+            <div className={`c-12 l-6 ${styles.header}`} >
                 <h1 className={styles.headerContent}>Đăng nhập</h1>
             </div>
-            <div className={`c-6 ${styles.form}`}>
+            <div className={`c-12 l-6 ${styles.form}`}>
                 <input placeholder="Email" class="text" value={email} onChange={(e)=>setEmail(e.target.value)}/>
                 <input placeholder="Mật khẩu" class="password" value={password} onChange={(e)=>setPassword(e.target.value)}></input>
                 <div className={`row ${styles.submit}`}>

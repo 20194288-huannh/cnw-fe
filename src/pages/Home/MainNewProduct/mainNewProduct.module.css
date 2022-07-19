@@ -1,12 +1,11 @@
 /* -----New Product------ */
-
 .mainNewProduct {
     display: block;
-    padding: 0 40px;
+    padding: 0 10px;
 }
 
 .mainNewProductTitle {
-    margin: 40px 0;
+    margin: 20px 0;
 }
 
 .mainNewProduct .mainNewProductTitle .productTitle {
@@ -41,4 +40,45 @@
     min-width: 1%;
 }
 
-
+@media (min-width: 1024px) and (max-width: 1239px){
+    .mainNewProduct {
+        display: block;
+        padding: 0 40px;
+    }
+    
+    .mainNewProductTitle {
+        margin: 40px 0;
+    }
+    
+    .mainNewProduct .mainNewProductTitle .productTitle {
+        text-align: center;
+    }
+    
+    .mainNewProduct .mainNewProductTitle .productTitle a {
+        font-size: 29px;
+        text-decoration: none;
+        color: var(--color-text);
+        letter-spacing: 1px;
+        font-weight: 600;
+    }
+    
+    .mainNewProduct .mainNewProductTitle .productTitle a:hover {
+        color: var(--color-hover);
+    }
+    
+    .mainNewProduct .mainNewProductTitle .productTitle .productViewMore {
+        margin-top: 20px;
+    }
+    
+    .mainNewProduct .mainNewProductTitle .productTitle .productViewMore a {
+        font-weight: 500;
+        font-size: 18px;
+    }
+    
+    
+    /* ------New-Product-Slider-------- */
+    
+    .mainNewProductSlide {
+        min-width: 1%;
+    }
+}

@@ -14,31 +14,31 @@ function Footer(){
                         <div className={styles.aboutList}>
                             <ul>
                                 <li className={`${styles.aboutItem} ${styles.title}`}>Tuyển dụng</li>
-                                <li className={styles.aboutItem}><Link to="/">Tuyển dụng Tháng 12/2020</Link></li>
-                                <li className={styles.aboutItem}><Link to="/">Tuyển dụng tháng 07/2020</Link></li>
-                                <li className={styles.aboutItem}><Link to="/">Thông tin tuyển dụng tháng 02/2021</Link></li>
+                                <li className={`${styles.hidden} ${styles.aboutItem}`}><Link to="/">Tuyển dụng Tháng 12/2020</Link></li>
+                                <li className={`${styles.hidden} ${styles.aboutItem}`}><Link to="/">Tuyển dụng tháng 07/2020</Link></li>
+                                <li className={`${styles.hidden} ${styles.aboutItem}`}><Link to="/">Thông tin tuyển dụng tháng 02/2021</Link></li>
                             </ul>
                         </div>
                         <div className={styles.aboutList}>
                             <ul>
                                 <li className={`${styles.aboutItem} ${styles.title}`}>Khám phá EDE</li>
-                                <li className={styles.aboutItem}><Link to="/">Về chúng tôi</Link></li>
-                                <li className={styles.aboutItem}><Link to="/">Câu hỏi thường gặp</Link></li>
-                                <li className={styles.aboutItem}><Link to="/">Tin tức</Link></li>
-                                <li className={styles.aboutItem}><Link to="/">Sự kiện</Link></li>
-                                <li className={styles.aboutItem}><Link to="/">Sao & Eva</Link></li>
-                                <li className={styles.aboutItem}><Link to="/">Mix & Match</Link></li>
+                                <li className={`${styles.hidden} ${styles.aboutItem}`}><Link to="/">Về chúng tôi</Link></li>
+                                <li className={`${styles.hidden} ${styles.aboutItem}`}><Link to="/">Câu hỏi thường gặp</Link></li>
+                                <li className={`${styles.hidden} ${styles.aboutItem}`}><Link to="/">Tin tức</Link></li>
+                                <li className={`${styles.hidden} ${styles.aboutItem}`}><Link to="/">Sự kiện</Link></li>
+                                <li className={`${styles.hidden} ${styles.aboutItem}`}><Link to="/">Sao & Eva</Link></li>
+                                <li className={`${styles.hidden} ${styles.aboutItem}`}><Link to="/">Mix & Match</Link></li>
                             </ul>
                         </div>
                         <div className={styles.aboutList}>
                             <ul>
                                 <li className={`${styles.aboutItem} ${styles.title}`}>Chính sách</li>
-                                <li className={styles.aboutItem}><Link to="/">Chính sách thanh toán</Link></li>
-                                <li className={styles.aboutItem}><Link to="/">Chính sách vận chuyển</Link></li>
-                                <li className={styles.aboutItem}><Link to="/">Chính sách đổi trả</Link></li>
-                                <li className={styles.aboutItem}><Link to="/">Chính sách bảo mật</Link></li>
-                                <li className={styles.aboutItem}><Link to="/">Chương trình thẻ VIP</Link></li>
-                                <li className={styles.aboutItem}><Link to="/">Hướng dẫn chọn size</Link></li>
+                                <li className={`${styles.hidden} ${styles.aboutItem}`}><Link to="/">Chính sách thanh toán</Link></li>
+                                <li className={`${styles.hidden} ${styles.aboutItem}`}><Link to="/">Chính sách vận chuyển</Link></li>
+                                <li className={`${styles.hidden} ${styles.aboutItem}`}><Link to="/">Chính sách đổi trả</Link></li>
+                                <li className={`${styles.hidden} ${styles.aboutItem}`}><Link to="/">Chính sách bảo mật</Link></li>
+                                <li className={`${styles.hidden} ${styles.aboutItem}`}><Link to="/">Chương trình thẻ VIP</Link></li>
+                                <li className={`${styles.hidden} ${styles.aboutItem}`}><Link to="/">Hướng dẫn chọn size</Link></li>
                             </ul>
                         </div>
                     </div>

@@ -32,10 +32,13 @@
 .headerNav {
     background: #fff;
     display: flex;
-    padding: 20px 40px;
+    padding: 20px 20px;
     width: 100%;
 }
-
+.bars{
+    font-size: 35px !important;
+    margin-right: 15px;
+}
 .headerLogo {
     width: 20%;
     height: 56px;
@@ -65,11 +68,7 @@
 }
 
 .headerNavContentItemLink {
-    display: block;
-    text-decoration: none;
-    font-size: 14px;
-    color: var(--color-text);
-    padding: 15px 0;
+    display: none;
 }
 
 .headerNavContentItemLink:hover {
@@ -195,10 +194,7 @@
 }
 
 .search {
-    height: 32px;
-    line-height: 32px;
-    position: relative;
-    display: block;
+    display: none;
 }
 .adminSearch:hover {
     background-color: #e8866e;
@@ -253,4 +249,264 @@
 .icon{
     font-size: 25px;
     padding-right: 20px;
+}
+@media (min-width: 1024px) and (max-width: 1409px){
+    .wrapper{
+        top: 0;
+        position: sticky;
+        z-index: 10;
+    }
+    .header {
+        background-color: #fff;
+        width: 100%; 
+    }
+    
+    .headerInfo {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 40px;
+        border-bottom: 1px solid var(--color-border);
+    }
+    
+    .headerInfoAdd {
+        text-decoration: none;
+        color: var(--color-text);
+    }
+    
+    .header-info-csbh,
+    .headerInfo a span {
+        color: black;
+        font-weight: 600;
+    }
+    
+    /* -----HEADER-NAVIGATION----- */
+    
+    .headerNav {
+        background: #fff;
+        display: flex;
+        padding: 20px 40px;
+        width: 100%;
+    }
+    .bars{
+        display: none;
+    }
+    
+    .headerLogo {
+        width: 20%;
+        height: 56px;
+    }
+    
+    .headerLogoImg {
+        height: 100%;
+        width: 190px;
+    }
+    
+    /* ------Main-Nav-------- */
+    
+    .headerNavMain {
+        width: 50%;
+    }
+    
+    .headerNavContent {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        justify-content: center;
+    }
+    
+    .headerNavContentItem {
+        position: relative;
+        margin: 0 15px;
+    }
+    
+    .headerNavContentItemLink {
+        display: block;
+        text-decoration: none;
+        font-size: 14px;
+        color: var(--color-text);
+        padding: 15px 0;
+    }
+    
+    .headerNavContentItemLink:hover {
+        color: var(--color-hover);
+        font-weight: bold;
+        text-decoration: none;
+    }
+    
+    .headerNavMain .headerNavContent .headerNavContentItem.hasItemMenu {
+        position: static;
+    }
+    
+    .hasItemMenu:hover > .headerSubNav {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* ---Header-Sub-Navigation----- */
+    
+    .headerSubNav {
+        position: absolute;
+        right: 24%;
+        width: 51%;
+        min-width: 127px;
+        padding-top: 20px;
+        padding-right: 22px;
+        background: #fff;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transform-origin: 0 0 0;
+        transition: all 0.3s ease-in;
+        box-shadow: 0 2px 14px rgb(0 0 0 / 10%);
+        border-left: 1px solid var(--color-border);
+        border-right: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
+        z-index: 100;
+    }
+    
+    .subNavList {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    
+    .subNavList ul {
+        margin: 0;
+    }
+    
+    .subNavItem {
+        float: left;
+        width: 25%;
+        padding: 0 10px;
+        margin-bottom: 20px;
+    }
+    
+    .subNavList .subNavItem {
+        list-style: none;
+        height: auto;
+    }
+    
+    .subNavItem a {
+        text-decoration: none;
+        display: block;
+    }
+    
+    .subNavItem a:hover .subNavInfo {
+        color: var(--color-hover);
+        outline: none;
+    }
+    
+    .subNavItemImg {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .subNavItem span {
+        display: block;
+        color: var(--color-text);
+        font-size: 15px;
+        padding-top: 10px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    /* ------Header-Nav-Right--------- */
+    
+    .headerNavRight {
+        display: flex;
+        width: 30%;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    
+    .headerForm {
+        position: relative;
+        border: 1px solid var(--color-border);
+        width: 50%;
+        height: 75%;
+        border: none;
+    }
+    
+    .headerSearch {
+        width: 100%;
+        height: 100%;
+        padding-left: 10px;
+    }
+    
+    .headerSearch:focus {
+        outline: none;
+    }
+    
+    .headerSearchBtn {
+        position: absolute;
+        top: 13px;
+        right: 6px;
+        background: url(https://file.hstatic.net/1000358207/file/searchicon.svg)
+            no-repeat;
+        width: 20px;
+        height: 15px;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .search {
+        height: 32px;
+        line-height: 32px;
+        position: relative;
+        display: block;
+    }
+    .adminSearch:hover {
+        background-color: #e8866e;
+    }
+    .adminSearch > i {
+        color: #fff;
+    }
+    
+    .closeSearch{
+        border: none;
+    }
+    .headerForm {
+        display: block;
+        position: absolute;
+        right: 0;
+        background: #fff;
+        border-radius: 30px;
+        right: 24px;
+        top: -4px;
+        width: 342px;
+    }
+    .headerForm input {
+        color: #86898e;
+        font-size: 14px;
+        height: 40px;
+        width: 100%;
+        padding-left: 50px;
+        border: 0;
+        padding-right: 15px;
+        background: transparent;
+        border-radius: 30px;
+        border: 0;
+        border: 1px solid #dca395;
+        font-weight: 400;
+    }
+    
+    .headerForm input:focus {
+        outline: none;
+    }
+    
+    /* Header icon */
+    .notify{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    .notifyInner{
+        display: none;
+    }
+    
+    .icon{
+        font-size: 25px;
+        padding-right: 20px;
+    }
 }

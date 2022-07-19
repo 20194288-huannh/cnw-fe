@@ -18,8 +18,8 @@ const News = () => {
                         </p>
                     </h2>
                 </div>
-                <div className={styles.newAbout}>
-                    <div className={`${styles.newsAbout1} c-6`}>
+                <div className={`row ${styles.newAbout}`}>
+                    <div className={`${styles.newsAbout1} c-12 l-6`}>
                         <div className={`${styles.newAboutImg} ${styles.bannerEffect}`}>
                             <Link to="/">
                                 <img
@@ -42,7 +42,7 @@ const News = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className={`${styles.newsAbout1} c-6`}>
+                    <div className={`${styles.newsAbout1} c-12 l-6`}>
                         <div className={`${styles.newAboutImg} ${styles.bannerEffect}`}>
                             <Link to="/">
                                 <img

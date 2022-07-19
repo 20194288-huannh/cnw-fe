@@ -32,7 +32,7 @@ const MainNewProduct = () => {
                 </div>
                 <div className={`row {styles.mainNewProductSlide}`} >
                     {products.map((product) => {
-                        return <div key= {product.ProductID} className="c-3"><Item product={product}/></div>
+                        return <div key= {product.ProductID} className="c-6 l-3"><Item product={product}/></div>
                     })}
                 </div>
             </div>

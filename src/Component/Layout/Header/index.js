@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './header.module.css'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faMagnifyingGlass, faUser, faCartShopping} from '@fortawesome/free-solid-svg-icons'
+import {faMagnifyingGlass, faUser, faCartShopping, faBars} from '@fortawesome/free-solid-svg-icons'
 
 function Header(){
     return (
@@ -16,6 +16,7 @@ function Header(){
                 </div>
             </div>
             <div className={styles.headerNav}>
+                <FontAwesomeIcon icon={faBars} className={`${styles.bars} ${styles.icon}`}/>
                 <div className={styles.headerLogo}>
                     <Link to="/">
                         <img alt={styles.anh} src="https://file.hstatic.net/1000358207/file/logo_eva.svg" className={styles.headerLogoImg} />
