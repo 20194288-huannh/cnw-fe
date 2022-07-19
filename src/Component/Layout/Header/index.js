@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass, faUser, faCartShopping, faBars} from '@fortawesome/free-solid-svg-icons'
 
 function Header(){
+    var user = JSON.parse(localStorage.getItem('info_user'));
     return (
         <div className={styles.wrapper}>
             <div className={styles.header}>
@@ -71,6 +72,17 @@ function Header(){
                                 </div>
                             </div>
                         </li>
+                        {user && user[0].Role == 1?
+                        <div className={styles.mnTotal}>
+                            <li className={styles.headerNavContentItem}>
+                            <Link to="/admin/product" className={styles.headerNavContentItemLink} title="Quản lí sản phẩm">QUẢN LÍ SẢN PHẨM</Link>
+                            </li>
+                            <li className={styles.headerNavContentItem}>
+                            <Link to="/admin/order" className={styles.headerNavContentItemLink} title="Quản lí order">QUẢN LÍ ORDER</Link>
+                            </li>
+                        </div>
+                        :<h2></h2>}
+                        
                     </ul>
                 </div>
                 <div className={styles.headerNavRight}>

@@ -1,4 +1,3 @@
-/* =============================================================== */
 .wrapper{
     top: 0;
     position: sticky;
@@ -250,6 +249,7 @@
     font-size: 25px;
     padding-right: 20px;
 }
+
 @media (min-width: 1024px) and (max-width: 1409px){
     .wrapper{
         top: 0;
