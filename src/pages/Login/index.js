@@ -1,29 +1,14 @@
 import styles from './Login.module.css'
 import { Link } from 'react-router-dom'
 import {useEffect, useState} from 'react'
-import Modal from 'react-modal'
 
-const customStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      transform: 'translate(-50%, -50%)',
-      width: '20%',
-      height: '20%',
-    },
-  };
+
 function Login(){
 
-    const [showModalSignup, setShowModalSignup] = useState(false)
+    
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('');
-    const [user, setUser] = useState([]);
-    const handleClickUpload = () => {
-
-    }
     
     const handleLogin = () => {
         fetch("http://localhost:8080/login", {
@@ -66,28 +51,8 @@ function Login(){
                 <div className={`row ${styles.submit}`}>
                     <button className={`c-4 ${styles.btnLogin}`} onClick={handleLogin}>Đăng nhập</button>
                     <div className={`c-4 ${styles.more}`}>
-                        <Link to="/">Quên mật khẩu ?</Link>
                         <span> hoặc</span> <Link to="/register">Đăng kí</Link>
                     </div>
-                    <Modal 
-                        isOpen={showModalSignup}
-                        style={customStyles}
-                        ariaHideApp={false}
-                        >
-                        <div>
-                            <h1>Đăng kí tài khoản</h1>
-                            <form onSubmit={(e) => handleClickUpload(e)}>
-                                <div className={styles.field_info}><label htmlFor="name" className={styles.labelData}>Tên đăng nhập</label><input value={name}
-                                    onChange={(e)=>{setName(e.target.value)}}
-                                    name="name" id="name" type="text" required className={styles.form_control}/>
-                                </div>
-                                <div className={styles.field_info}><label htmlFor="name" className={styles.labelData}>Mật khẩu</label><input value={name}
-                                    onChange={(e)=>{setName(e.target.value)}}
-                                    name="name" id="name" type="text" required className={styles.form_control}/>
-                                </div>
-                            </form>
-                        </div>
-                        </Modal>
                 </div>
             </div>
         </div>

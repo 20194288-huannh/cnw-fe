@@ -178,3 +178,72 @@
     font-weight: bold;
     margin-left: 600px;
 }
+
+
+.btn_export{
+    background-color: #6BFF33;
+}
+
+.pagination{
+    text-align: center;
+}
+
+
+.pageNode{
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    line-height: 26px;
+    position: relative;
+    text-align: center;
+    padding: 7px;
+    margin: 5px;
+}
+
+.pageNode > span{
+    display: inline-block;
+    margin: 0 5px;
+}
+@media (min-width: 1024px) and (max-width: 1409px){
+    .mainContent{
+        padding: 0 40px;
+    }
+    
+    .item {
+        height: 400px;
+    }
+    
+    .padding{
+        padding: 0 10px;
+    }
+    
+    .pagination{
+        text-align: center;
+    }
+    
+    .current{
+        background: black;
+        color: white;
+    }
+    
+    .pageNode{
+        width: 25px;
+        height: 25px;
+        border-radius: 100%;
+        line-height: 26px;
+        position: relative;
+        text-align: center;
+        padding: 7px;
+        margin: 5px;
+    }
+    
+    .pageNode > span{
+        display: inline-block;
+        margin: 0 5px;
+    }
+}
+
+.current{
+    background: black;
+    color: white;
+}

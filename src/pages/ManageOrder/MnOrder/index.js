@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import styles from '../ManageOrder.module.css'
 import Modal from 'react-modal'
+import { CSVLink } from 'react-csv'
 
 const format_curency = (a)=> {
         
@@ -22,18 +23,42 @@ const customStyles = {
       width: '20%',
       height: '20%',
     },
-  };
+};
 
 
 const MnOrder = () => {
     const [showModalRemove, setShowModalRemove] = useState(-1)
     const [orders, setOrders] = useState([])
+
+    const numProPerPage = 4;
+    const [numOfPages, setNumOfPages] = useState(1);
+    const [page, setPage] = useState(1)
+    const [a, b] = ["<<", ">>"]
+    var offset = (page - 1) * numProPerPage;
+
     useEffect(() => {
-        fetch(`http://localhost:8080/get_all_orders`)
+        fetch(`http://localhost:8080/get_num_order`)
+        .then(res => res.json())
+        .then(data => setNumOfPages(Math.ceil(data / numProPerPage)))
+
+        fetch(`http://localhost:8080/get_limit_orders?offset=${offset}&count=${numProPerPage}`)
         .then(res => res.json())
         .then(orders => setOrders(orders))
         
-    },[])
+    },[page])
+
+    const nextPage = (numOfPages)=>{
+        if (page < numOfPages){
+            setPage(page+1);
+        }
+        console.log(numOfPages);
+    }
+
+    const backPage = ()=>{
+        if (page >= 2){
+            setPage(page-1);
+        }
+    }
 
     const handleRemoveOrder = async(item) => {
             fetch('http://localhost:8080/delete_order',{
@@ -53,8 +78,9 @@ const MnOrder = () => {
             <div className={styles.table_product}>
             <div className={styles.table_product_title}>
                     <div className={styles.title_table_product_content}>Order</div>
-                    <div className={styles.admin_right_product}>
-                    </div>
+                    <button type="button" className={styles.btn_export}>
+                        <CSVLink data={orders} filename={"Thongke.csv"}>Xuất Excel</CSVLink>
+                    </button>
                 </div>
             
             <table className={styles.table}>
@@ -121,6 +147,18 @@ const MnOrder = () => {
         
                         </tbody>
             </table>
+            
+            </div>
+            <div className={styles.pagination}>
+                <span className={`${styles.pageNode}`} onClick={backPage}>
+                    <span className="titleNumber">  {a} </span>
+                </span>
+                <span className={`${styles.pageNode} ${styles.current}`}>
+                    <span className="titleNumber">{page}</span>
+                </span>
+                <span className={`${styles.pageNode} `} onClick={()=>nextPage(numOfPages)}>
+                    <span className="titleNumber"> {b} </span>
+                </span>
             </div>
             </div>
         </div>

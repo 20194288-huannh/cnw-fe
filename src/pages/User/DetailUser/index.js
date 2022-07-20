@@ -7,7 +7,6 @@ const format_curency = (a)=> {
         
     a=a.toString();
     a = a.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
-    
     return a;
 }
 
@@ -120,7 +119,7 @@ const DetailUser = () => {
                                         <td className={styles.content}>{item.Size}</td>
                                         <td className={styles.content}>{item.Material}</td>
                                         <td className={styles.content}>{item.Color}</td>
-                                        <td className={styles.content}>{item.Quantity * item.Price}</td>
+                                        <td className={styles.content}>{format_curency(item.Quantity * item.Price)}đ</td>
                                     </tr>
                                 )
                             }  

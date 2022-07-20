@@ -2,10 +2,9 @@ import styles from './DetailProduct.module.css'
 import { useState } from "react";
 import { useEffect } from "react";
 import FindShop from "../Home/FindShop";
-import { showSuccessToast } from "../../Component/Toast";
 import { Link, useParams } from "react-router-dom";
 import NavProduct from "../Product/NavProduct";
-import "../../Component/Toast/toast.css";
+
 
 const sizeTest = ["SizeM", "SizeS", "SizeL", "SizeXL"];
 const size = ["M", "S", "L", "XL"];

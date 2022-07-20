@@ -8,7 +8,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const Product = ({CategoryID, ProductTypeID}) => {
-    var numOfPages;
+    const numProPerPage = 8;
+    const [numOfPages, setNumOfPages] = useState(1);
     const[page, setPage] = useState(1)
     const[products, setProducts] = useState([]);
     let linkPro;
@@ -23,50 +24,66 @@ const Product = ({CategoryID, ProductTypeID}) => {
     } else {
         linkPro = 'product';
     }
-    const a = ">>";
+    const a = "<<"
+    const b = ">>"
     
+    var offset = (page - 1) *numProPerPage;
     
 
-        useEffect(()=>{
-            if (ProductTypeID){
-                async function fetchData() {
-                    var response = await fetch(`http://localhost:8080/get_num_product_by_ProductTypeID?ProductTypeID=${ProductTypeID}`)
-                    var data = await response.json();
-                    numOfPages = Math.ceil(data / 4);
-                    
-                    var response = await fetch(`http://localhost:8080/get_products_limit_by_id?ProductTypeID=${ProductTypeID}&offset=0&count=16`)
-                    var data = await response.json();
-                    setProducts(data);
-                }
-                fetchData();
+    useEffect(()=>{
+        if (ProductTypeID){
+            async function fetchData() {
+                var response = await fetch(`http://localhost:8080/get_num_product_by_ProductTypeID?ProductTypeID=${ProductTypeID}`)
+                var data = await response.json();
+                setNumOfPages(Math.ceil(data / numProPerPage));
+
+                var response = await fetch(`http://localhost:8080/get_products_limit_by_id?ProductTypeID=${ProductTypeID}&offset=${offset}&count=${numProPerPage}`)
+                var data = await response.json();
+                setProducts(data);
             }
-            else if (CategoryID){
-                async function fetchData() {
-                    var response = await fetch(`http://localhost:8080/get_num_product_by_CategoryID?CategoryID=${CategoryID}`)
-                    var data = await response.json();
-                    numOfPages = Math.ceil(data / 4);
+            fetchData();
 
-                    var response = await fetch(`http://localhost:8080/get_products_limit_by_id?CategoryID=${CategoryID}&offset=0&count=4`)
-                    var data = await response.json();
-                    setProducts(data);
-                }
-                fetchData();
+        }
+        else if (CategoryID){
+            async function fetchData() {
+                var response = await fetch(`http://localhost:8080/get_num_product_by_CategoryID?CategoryID=${CategoryID}`)
+                var data = await response.json();
+                setNumOfPages(Math.ceil(data / numProPerPage));
+
+                var response = await fetch(`http://localhost:8080/get_products_limit_by_id?CategoryID=${CategoryID}&offset=${offset}&count=${numProPerPage}`)
+                var data = await response.json();
+                setProducts(data);
             }
-            else {
-                async function fetchData() {
-                    var response = await fetch(`http://localhost:8080/get_num_product`)
-                    var data = await response.json();
-                    numOfPages = Math.ceil(data / 4);
+            fetchData();
 
-                    var response = await fetch(`http://localhost:8080/get_limit_products?offset=${page}&count=4`)
-                    var data = await response.json();
-                    setProducts(data);
-                }
-                fetchData();
-            } 
-            
-        }, [CategoryID, ProductTypeID])
+        }
+        else {
+            async function fetchData() {
+                var response = await fetch(`http://localhost:8080/get_num_product`)
+                var data = await response.json();
+                setNumOfPages(Math.ceil(data / numProPerPage));
+
+                var response = await fetch(`http://localhost:8080/get_limit_products?offset=${offset}&count=${numProPerPage}`)
+                var data = await response.json();
+                setProducts(data);
+            }
+            fetchData();
+        } 
+        
+    }, [page, CategoryID, ProductTypeID])
     
+    const nextPage = (numOfPages)=>{
+        if (page < numOfPages){
+            setPage(page+1);
+        }
+        console.log(numOfPages);
+    }
+
+    const backPage = ()=>{
+        if (page >= 2){
+            setPage(page-1);
+        }
+    }
 
     return (
         <React.Fragment>
@@ -75,28 +92,17 @@ const Product = ({CategoryID, ProductTypeID}) => {
                 {products.map((product) => {
                     return <div key= {product.ProductID} className="c-6 l-3"><Item product={product}/></div>
                 })}
-                {
-                    
-                }
+                
             </div>
             <div className={styles.pagination}>
+                <span className={`${styles.pageNode}`} onClick={backPage}>
+                    <span className="titleNumber">  {a} </span>
+                </span>
                 <span className={`${styles.pageNode} ${styles.current}`}>
-                    <span className="titleNumber">1</span>
+                    <span className="titleNumber">{page}</span>
                 </span>
-                <span className={`${styles.pageNode}`}>
-                    <span className="titleNumber">2</span>
-                </span>
-                <span className={`${styles.pageNode}`}>
-                    <span className="titleNumber">3</span>
-                </span>
-                <span className={`${styles.pageNode}`}>
-                    <span className="titleNumber">...</span>
-                </span>
-                <span className={`${styles.pageNode} `}>
-                    <span className="titleNumber">12</span>
-                </span>
-                <span className={`${styles.pageNode} `}>
-                    <span className="titleNumber"> {a} </span>
+                <span className={`${styles.pageNode} `} onClick={()=>nextPage(numOfPages)}>
+                    <span className="titleNumber"> {b} </span>
                 </span>
             </div>
             <FindShop />

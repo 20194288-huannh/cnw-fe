@@ -34,12 +34,34 @@ const MnProduct = () => {
     const [showModalUpdate, setShowModalUpdate]= useState(false);
     const [flag, setFlag] = useState(0);
     const [products, setProducts] = useState([])
+
+    const numProPerPage = 4;
+    const [numOfPages, setNumOfPages] = useState(1);
+    const [page, setPage] = useState(1)
+    const [a, b] = ["<<", ">>"]
+    var offset = (page - 1) * numProPerPage;
     useEffect(() => {
-        fetch(`http://localhost:8080/get_product_by_categoryID?CategoryID=${CategoryID}`)
+        fetch(`http://localhost:8080/get_num_product_by_CategoryID?CategoryID=${CategoryID}`)
+        .then(res => res.json())
+        .then(data => setNumOfPages(Math.ceil(data / numProPerPage)))
+
+        fetch(`http://localhost:8080/get_products_limit_by_id?CategoryID=${CategoryID}&offset=${offset}&count=${numProPerPage}`)
         .then(res => res.json())
         .then(products => setProducts(products))
-        
-    },[CategoryID])
+    },[page, CategoryID])
+
+    const nextPage = (numOfPages)=>{
+        if (page < numOfPages){
+            setPage(page+1);
+        }
+        console.log(numOfPages);
+    }
+
+    const backPage = ()=>{
+        if (page >= 2){
+            setPage(page-1);
+        }
+    }
 
     const handleUpdateDress= (id) => {
         setFlag(id);
@@ -166,6 +188,18 @@ const MnProduct = () => {
                         </tbody>
             </table>
             <AddProduct isDisplay={showModalAdd} setShowModalAdd={setShowModalAdd}/>;
+            </div>
+
+            <div className={styles.pagination}>
+                <span className={`${styles.pageNode}`} onClick={backPage}>
+                    <span className="titleNumber">  {a} </span>
+                </span>
+                <span className={`${styles.pageNode} ${styles.current}`}>
+                    <span className="titleNumber">{page}</span>
+                </span>
+                <span className={`${styles.pageNode} `} onClick={()=>nextPage(numOfPages)}>
+                    <span className="titleNumber"> {b} </span>
+                </span>
             </div>
             </div>
         </div>

@@ -41,6 +41,7 @@ export const privateRoute = [
     {path: "/admin/order", component: <MnOrder/>},
     {path: "/",  component: <Home />},
     {path: "/login", component: <Login/>},
+    {path: "/register", component: <Register/>},
     {path: "/detail/:id", component: <DetailProduct/>},
     {path: "/account", component: <User/>},
 

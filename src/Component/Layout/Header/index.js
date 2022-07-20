@@ -106,10 +106,6 @@ function Header(){
                 <div className={styles.headerNavRight}>
                     <div className={styles.headerSearchProduct}>
                         <div className={styles.search}>
-                            <form action="search" className={styles.headerForm}>
-                                <input autoFocus={true} type="text" className={styles.headerForm} placeholder="Tìm sản phẩm..." />
-                                <div className={styles.closeSearch}><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
-                            </form>
                             <div className="search-result"></div>
                         </div>
                     </div>
@@ -119,7 +115,6 @@ function Header(){
                     <div className={styles.notifyInner}>
                         Đăng nhập
                     </div>
-                    <FontAwesomeIcon icon={faCartShopping} className={styles.icon}/>
                 </div>
             </div>
         </div>
