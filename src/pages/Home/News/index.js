@@ -19,7 +19,7 @@ const News = () => {
                     </h2>
                 </div>
                 <div className={`row ${styles.newAbout}`}>
-                    <div className={`${styles.newsAbout1} c-12 l-6`}>
+                    <div className={`${styles.newsAbout1} col  m-6 c-12`}>
                         <div className={`${styles.newAboutImg} ${styles.bannerEffect}`}>
                             <Link to="/">
                                 <img
@@ -42,7 +42,7 @@ const News = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className={`${styles.newsAbout1} c-12 l-6`}>
+                    <div className={`${styles.newsAbout1} col m-6 c-12 `}>
                         <div className={`${styles.newAboutImg} ${styles.bannerEffect}`}>
                             <Link to="/">
                                 <img

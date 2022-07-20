@@ -62,7 +62,7 @@ function Login(){
             </div>
             <div className={`c-12 l-6 ${styles.form}`}>
                 <input placeholder="Email" class="text" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-                <input placeholder="Mật khẩu" class="password" value={password} onChange={(e)=>setPassword(e.target.value)}></input>
+                <input placeholder="Mật khẩu" class="password" value={password} onChange={(e)=>setPassword(e.target.value)} type="password"></input>
                 <div className={`row ${styles.submit}`}>
                     <button className={`c-4 ${styles.btnLogin}`} onClick={handleLogin}>Đăng nhập</button>
                     <div className={`c-4 ${styles.more}`}>

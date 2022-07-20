@@ -33,11 +33,53 @@
     display: flex;
     padding: 20px 20px;
     width: 100%;
+    align-items: flex-start;
 }
+
+.toggle {
+    position: relative;
+    display: block;
+    text-align: right;
+    cursor: pointer;
+}
+
 .bars{
     font-size: 35px !important;
     margin-right: 15px;
 }
+
+.mainMenu {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.navbar {
+    top: 130%;
+    left: 0;
+    position: absolute;
+    opacity: .2;
+    visibility: hidden ;
+    width: 200px;
+    background: rgba(220, 163, 149, 0.8);
+    z-index: 30;
+    font-weight: 600;
+}
+
+
+.mainMenu li a {
+    text-decoration: none;
+    display: block;
+    padding: 8px 15px;
+}
+
+.mainMenu li:hover a {
+    background: #c23616;
+    transition: all 0.3s;
+}
+
+
 .headerLogo {
     width: 20%;
     height: 56px;
@@ -246,8 +288,8 @@
 }
 
 .icon{
-    font-size: 25px;
-    padding-right: 20px;
+    font-size: 28px;
+    padding-right: 12px;
 }
 
 @media (min-width: 1024px) and (max-width: 1409px){
@@ -287,7 +329,7 @@
         padding: 20px 40px;
         width: 100%;
     }
-    .bars{
+    .toggle{
         display: none;
     }
     
