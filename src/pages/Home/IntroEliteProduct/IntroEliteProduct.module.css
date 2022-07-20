@@ -1,14 +1,10 @@
 .introEliteProduct {
-    display: flex;
     width: 100%;
     margin-top: 70px;
 }
 
-.introEliteProductImg {
-    width: 52%;
-}
 
-.introEliteProductImg a img {
+.newProductImg {
     width: 100%;
 }
 

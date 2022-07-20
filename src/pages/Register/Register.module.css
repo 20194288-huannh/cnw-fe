@@ -67,7 +67,7 @@
     line-height: 25px;
 }
 
-.btnLogin{
+.btnRegister{
     border: none;
     background-color: #111111;
     color: white;
@@ -75,7 +75,7 @@
     margin-left: 5px;
 }
 
-.btnLogin:hover{
+.btnRegister:hover{
     background-color: #e29481;
     border: none;
 }
@@ -164,7 +164,7 @@
         line-height: 25px;
     }
     
-    .btnLogin{
+    .btnRegister{
         border: none;
         background-color: #111111;
         color: white;
@@ -172,7 +172,7 @@
         margin-left: 12px;
     }
     
-    .btnLogin:hover{
+    .btnRegister:hover{
         background-color: #e29481;
         border: none;
     }

@@ -35,6 +35,11 @@ a{
 a:hover{
     color: #c8102e;
 }
+
+.show {
+    opacity: 1;
+    visibility: visible;
+}
 /* Grid system */
 .grid {
     width: 100%;
@@ -192,20 +197,7 @@ a:hover{
         display: none;
     }
 
-    .m-1,
-    .m-2,
-    .m-3,
-    .m-4,
-    .m-5,
-    .m-6,
-    .m-7,
-    .m-8,
-    .m-9,
-    .m-10,
-    .m-11,
-    .m-12 {
-        display: block;
-    }
+   
 
     .m-1 {
         flex: 0 0 8.33333%;
@@ -472,7 +464,7 @@ a:hover{
 }
 
 /* > PC low resolution */
-@media (min-width: 1024px) and (max-width: 1239px) {
+@media (min-width: 1024px) and (max-width: 1309px) {
     .wide {
         width: 984px;
     }

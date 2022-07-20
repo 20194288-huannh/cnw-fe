@@ -57,17 +57,17 @@ function Login(){
             </li>
         </ul>
         <div className='row'>
-            <div className={`c-6 ${styles.header}`} >
+            <div className={`c-12 l-6 ${styles.header}`} >
                 <h1 className={styles.headerContent}>Đăng nhập</h1>
             </div>
-            <div className={`c-6 ${styles.form}`}>
+            <div className={`c-12 l-6 ${styles.form}`}>
                 <input placeholder="Email" class="text" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-                <input placeholder="Mật khẩu" class="password" value={password} onChange={(e)=>setPassword(e.target.value)}></input>
+                <input placeholder="Mật khẩu" class="password" value={password} onChange={(e)=>setPassword(e.target.value)} type="password"></input>
                 <div className={`row ${styles.submit}`}>
                     <button className={`c-4 ${styles.btnLogin}`} onClick={handleLogin}>Đăng nhập</button>
                     <div className={`c-4 ${styles.more}`}>
                         <Link to="/">Quên mật khẩu ?</Link>
-                        <span> hoặc</span> <button onClick={() => setShowModalSignup(true)}> Đăng kí</button>
+                        <span> hoặc</span> <Link to="/register">Đăng kí</Link>
                     </div>
                     <Modal 
                         isOpen={showModalSignup}

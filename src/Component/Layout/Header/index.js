@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './header.module.css'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faMagnifyingGlass, faUser, faCartShopping} from '@fortawesome/free-solid-svg-icons'
+import {faMagnifyingGlass, faUser, faCartShopping, faBars} from '@fortawesome/free-solid-svg-icons'
 
 function Header(){
     var user = JSON.parse(localStorage.getItem('info_user'));
+    const [show,setShow] = useState(false)
+    console.log(show);
     return (
         <div className={styles.wrapper}>
             <div className={styles.header}>
@@ -17,6 +19,23 @@ function Header(){
                 </div>
             </div>
             <div className={styles.headerNav}>
+                <div className = {`${styles.toggle} `} onClick={()=>{
+                   setShow(!show)
+                    
+                }}>
+                    <FontAwesomeIcon icon={faBars} className={`${styles.bars} ${styles.icon}`}/>
+                    <nav className={`${styles.navbar}  ${show && 'show'}`}>
+                        <ul className ={styles.mainMenu}>
+                            <li>
+                                <Link to="/">Hàng mới về</Link>
+                            </li>
+                            <li>
+                                <Link to="/product">Sản phẩm</Link>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
                 <div className={styles.headerLogo}>
                     <Link to="/">
                         <img alt={styles.anh} src="https://file.hstatic.net/1000358207/file/logo_eva.svg" className={styles.headerLogoImg} />

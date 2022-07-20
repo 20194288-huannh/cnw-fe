@@ -97,9 +97,9 @@ function DetailProduct() {
         <div>
             <div className={styles.productContainer}>
                 <div className={`row ${styles.product}`}>
-                    <div className={`c-7 ${styles.productImages}`}>
+                    <div className={`l-7 c-12 ${styles.productImages}`}>
                         <div className="row">
-                            <div className={`c-2 ${styles.thumbs}`}>
+                            <div className={`l-2 c-0 ${styles.thumbs}`}>
                                 {product[0].Image.map((item, index) => {
                                     return (
                                         <div
@@ -113,12 +113,12 @@ function DetailProduct() {
                                     );
                                 })}
                             </div>
-                            <div className={`c-10 ${styles.mainImages}`}>
+                            <div className={`l-10 c-12 ${styles.mainImages}`}>
                                 <img src={product[0].Image[parseInt(activeImg, 10)]} alt="" />
                             </div>
                         </div>
                     </div>
-                    <div className={`c-5 ${styles.productDetails}`}>
+                    <div className={`l-5 ${styles.productDetails}`}>
                         <h1>{product[0].ProductName}</h1>
 
                         <div className={styles.desProduct}>
