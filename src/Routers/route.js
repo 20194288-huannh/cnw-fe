@@ -5,6 +5,7 @@ import DetailProduct from '../pages/DetailProduct';
 import Product from '../pages/Product'
 import User from '../pages/User';
 import MnOrder from '../pages/ManageOrder/MnOrder';
+import Register from '../pages/Register';
 
 export const publicRoute = [
     {path: "/",  component: <Home />},
@@ -30,6 +31,7 @@ export const publicRoute = [
     {path: "/quanshort", component: <Product CategoryID='4' ProductTypeID='13'/>},
 
     {path: "/login", component: <Login/>},
+    {path: "/register", component: <Register/>},
     {path: "/detail/:id", component: <DetailProduct/>},
     {path: "/account", component: <User/>}
 ]

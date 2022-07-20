@@ -67,7 +67,7 @@ function Login(){
                     <button className={`c-4 ${styles.btnLogin}`} onClick={handleLogin}>Đăng nhập</button>
                     <div className={`c-4 ${styles.more}`}>
                         <Link to="/">Quên mật khẩu ?</Link>
-                        <span> hoặc</span> <button onClick={() => setShowModalSignup(true)}> Đăng kí</button>
+                        <span> hoặc</span> <Link to="/register">Đăng kí</Link>
                     </div>
                     <Modal 
                         isOpen={showModalSignup}
