@@ -32,6 +32,10 @@ function DetailProduct() {
     var date = new Date()
 
     const handleAddCart = () => {
+        if(!user){
+            alert("Vui lòng đăng nhập để mua hàng!");
+            window.location.replace('/login');
+        }
         if (!keyActive) {
             alert("Vui long chon size!")
         } else {

@@ -9,7 +9,9 @@ function Login(){
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('');
-    
+    const handleRegister = () =>{
+        window.location.replace('/register')
+    }
     const handleLogin = () => {
         fetch("http://localhost:8080/login", {
             method: 'POST',
@@ -50,9 +52,8 @@ function Login(){
                 <input placeholder="Mật khẩu" class="password" value={password} onChange={(e)=>setPassword(e.target.value)} type="password"></input>
                 <div className={`row ${styles.submit}`}>
                     <button className={`c-4 ${styles.btnLogin}`} onClick={handleLogin}>Đăng nhập</button>
-                    <div className={`c-4 ${styles.more}`}>
-                        <span> hoặc</span> <Link to="/register">Đăng kí</Link>
-                    </div>
+                    
+                    <button className={`c-4 ${styles.btnLogin}`} onClick={handleRegister}>Đăng kí</button>
                 </div>
             </div>
         </div>

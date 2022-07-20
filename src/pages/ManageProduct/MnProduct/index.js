@@ -39,6 +39,11 @@ const MnProduct = () => {
     const [numOfPages, setNumOfPages] = useState(1);
     const [page, setPage] = useState(1)
     const [a, b] = ["<<", ">>"]
+
+    useEffect(() => {
+        setPage(1);
+    },[CategoryID])
+
     var offset = (page - 1) * numProPerPage;
     useEffect(() => {
         fetch(`http://localhost:8080/get_num_product_by_CategoryID?CategoryID=${CategoryID}`)

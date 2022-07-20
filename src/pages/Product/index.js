@@ -27,8 +27,11 @@ const Product = ({CategoryID, ProductTypeID}) => {
     const a = "<<"
     const b = ">>"
     
+    useEffect(() => {
+        setPage(1);
+    }, [ProductTypeID, CategoryID])
+
     var offset = (page - 1) *numProPerPage;
-    
 
     useEffect(()=>{
         if (ProductTypeID){
